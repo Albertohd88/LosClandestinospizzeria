@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Los Clandestinos — Pizzería Italiana · La Línea de la Concepción</title>
+  <meta name="description" content="Pizzería italiana auténtica en La Línea de la Concepción. Masa artesanal, horno de piedra, ingredientes italianos DOP. Calle Carboneros 5.">
+  <meta property="og:title" content="Los Clandestinos — Pizzería Italiana">
+  <meta property="og:description" content="Real Italian pizza. Stone oven. La Línea de la Concepción.">
+  <meta property="og:type" content="restaurant">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- GSAP -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- JSON-LD Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "Los Clandestinos Pizzería Italiana",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Calle Carboneros 5",
+      "addressLocality": "La Línea de la Concepción",
+      "postalCode": "11300",
+      "addressRegion": "Cádiz",
+      "addressCountry": "ES"
+    },
+    "telephone": "+34856941295",
+    "servesCuisine": ["Italian", "Pizza"],
+    "openingHours": ["Su 19:00-23:30","We-Sa 19:00-23:30"]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════
+       NAV
+  ══════════════════════════════════════ -->
+  <nav class="nav" aria-label="Main navigation">
+
+    <!-- Language switcher — fixed left -->
+    <div class="nav__lang" id="langSwitcher" aria-label="Language selector">
+      <button class="lang-btn lang-btn--active" data-lang="es" aria-label="Español">
+        <svg class="lang-flag" viewBox="0 0 24 18" role="img" aria-hidden="true" focusable="false">
+          <rect width="24" height="18" rx="3" fill="#AA151B"/>
+          <rect y="4.5" width="24" height="9" fill="#F1BF00"/>
+          <path d="M6 7.2h2.6v4.2H6z" fill="#C60B1E"/>
+          <path d="M6.5 7.7h1.6v3.2H6.5z" fill="#F1BF00"/>
+        </svg>
+        <span class="sr-only">Español</span>
+      </button>
+      <button class="lang-btn" data-lang="en" aria-label="English">
+        <svg class="lang-flag" viewBox="0 0 24 18" role="img" aria-hidden="true" focusable="false">
+          <clipPath id="flag-uk-index"><rect width="24" height="18" rx="3"/></clipPath>
+          <g clip-path="url(#flag-uk-index)">
+            <rect width="24" height="18" fill="#012169"/>
+            <path d="M0 0l24 18M24 0L0 18" stroke="#fff" stroke-width="4"/>
+            <path d="M0 0l24 18M24 0L0 18" stroke="#C8102E" stroke-width="2.4"/>
+            <path d="M12 0v18M0 9h24" stroke="#fff" stroke-width="7"/>
+            <path d="M12 0v18M0 9h24" stroke="#C8102E" stroke-width="4"/>
+          </g>
+        </svg>
+        <span class="sr-only">English</span>
+      </button>
+    </div>
+
+    <!-- Logo — centered -->
+    <a href="index.html" class="nav__logo-link" aria-label="Los Clandestinos — Home">
+      <img src="images/logo-white.svg" class="nav__logo" id="navLogo" alt="Los Clandestinos Pizzería Italiana" />
+    </a>
+
+    <!-- Right group: products link + order CTA -->
+    <div class="nav__right">
+      <a href="productos.html" class="nav__products-link" data-i18n="nav-products">NUESTROS PRODUCTOS</a>
+      <a href="tel:+34856941295" class="nav__order-btn" data-i18n="nav-order">PEDIR ONLINE</a>
+    </div>
+
+  </nav>
+
+  <!-- ══════════════════════════════════════
+       SECTION 1 — HERO (RED)
+  ══════════════════════════════════════ -->
+  <section class="hero" id="hero" aria-label="Hero">
+
+    <!-- Hero background image -->
+    <div class="hero__bg" aria-hidden="true">
+      <img src="images/hero-bg.jpg" alt="" fetchpriority="high" />
+    </div>
+
+    <!-- Floating pizza items in orbit -->
+    <div class="pizza-orbit" aria-hidden="true">
+      <div class="pizza-item" id="p1" data-layer="1" style="width:310px;height:310px">
+        <img src="images/pizza1.jpg" alt="Quattro Formaggi" />
+      </div>
+      <div class="pizza-item" id="p2" data-layer="2" style="width:255px;height:255px">
+        <img src="images/pizza2.jpg" alt="Anchoas" />
+      </div>
+      <div class="pizza-item" id="p3" data-layer="3" style="width:365px;height:365px">
+        <img src="images/pizza3.jpg" alt="Prosciutto" />
+      </div>
+      <div class="pizza-item pizza-item--transparent" id="p4" data-layer="4" style="width:280px;height:280px">
+        <img src="images/pizza4.webp" alt="Our New Refugio" />
+      </div>
+      <div class="pizza-item" id="p5" data-layer="5" style="width:210px;height:210px">
+        <img src="images/pizza5.jpg" alt="Capricciosa" />
+      </div>
+    </div>
+
+    <!-- Headline with alternating words -->
+    <div class="hero__headline" aria-live="polite">
+      <span class="hero__static" data-i18n="hero-static">QUÉ GANAS DE</span>
+      <div class="hero__word-wrap" id="wordWrap" aria-label="Jamón, Queso, Anchoas">
+        <span class="hero__word hero__word--active" data-word="JAMÓN" data-i18n="word-0">JAMÓN</span>
+        <span class="hero__word hero__word--enter"  data-word="QUESO" data-i18n="word-1">QUESO</span>
+        <span class="hero__word hero__word--enter"  data-word="ANCHOAS" data-i18n="word-2">ANCHOAS</span>
+      </div>
+    </div>
+
+    <!-- Labels -->
+    <div class="pizza-label label-dop" aria-hidden="true">
+      "DOP" CHEESE
+      <svg class="label-arrow label-arrow--dop" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M5 5 Q 30 5 35 30" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        <path d="M30 25 L35 30 L28 30" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <div class="pizza-label label-refugio" id="btnRefugio" role="button" tabindex="0" aria-pressed="false" data-i18n="label-refugio-text">
+      NUESTRO NUEVO REFUGIO
+    </div>
+
+  </section>
+
+  <!-- ══════════════════════════════════════
+       BANNER — GREEN TICKER (after hero)
+  ══════════════════════════════════════ -->
+  <section class="ticker-section" aria-label="Los mejores ingredientes">
+    <div class="ticker-track" aria-hidden="true">
+      <span>LOS MEJORES INGREDIENTES</span>
+      <span class="ticker-sep">✦</span>
+      <span>UNA PIZZA QUE ES UNA OBRA DE ARTE</span>
+      <span class="ticker-sep">✦</span>
+      <span>LOS MEJORES INGREDIENTES</span>
+      <span class="ticker-sep">✦</span>
+      <span>UNA PIZZA QUE ES UNA OBRA DE ARTE</span>
+      <span class="ticker-sep">✦</span>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       SECTION 2 — ABOUT 2.0
+  ══════════════════════════════════════ -->
+  <section class="about-section" id="about" aria-label="About Los Clandestinos">
+
+    <!-- Full-bleed collage background -->
+    <div class="about-collage" aria-hidden="true">
+      <img src="images/about-collage-compressed.jpg" alt="" loading="lazy" />
+    </div>
+
+    <!-- Overlay -->
+    <div class="about-overlay" aria-hidden="true"></div>
+
+    <!-- Content -->
+    <div class="about-content">
+
+      <div class="about-eyebrow" data-i18n="about-eyebrow">La Línea · Desde 2020</div>
+
+      <h2 class="about-title">
+        <span class="line">La pizza italiana</span>
+        <span class="line line--red">nacida entre</span>
+        <span class="line">fronteras.</span>
+      </h2>
+
+      <div class="about-body">
+        <p data-i18n="about-body-1">Los Clandestinos nace de la amistad y del deseo de crear algo especial entre La Línea de la Concepción y la comunidad de Gibraltar. Un proyecto marcado por la frontera, el Brexit y la pandemia, donde encontramos en la pizza una forma de unir culturas y seguir adelante.</p>
+        <p data-i18n="about-body-2">Nuestras raíces vienen de Abruzzo, una tierra con un ritmo de vida muy cercano al andaluz: pasión por la buena comida, respeto por los tiempos y amor por los ingredientes. Ese saber hacer se traduce en cada detalle: la fermentación de la masa, la selección de harinas y los aceites de oliva de Málaga.</p>
+        <p data-i18n="about-body-3">Porque las recetas más sencillas son las que cuentan las mejores historias.</p>
+      </div>
+
+      <div class="about-tags">
+        <span data-i18n="tag-0">Horno de piedra</span>
+        <span data-i18n="tag-1">Masa artesanal</span>
+        <span data-i18n="tag-2">Ingredientes DOP</span>
+        <span data-i18n="tag-3">Abierto desde 2023</span>
+      </div>
+
+    </div>
+
+    <!-- Large decorative number -->
+    <div class="about-deco" aria-hidden="true">480°C</div>
+
+  </section>
+
+  <!-- FROM OUR KITCHEN stripe -->
+  <div class="hero__stripe hero__stripe--standalone" aria-hidden="true">
+    <div class="hero__stripe-track">
+      <span>FROM OUR KITCHEN &nbsp;✦&nbsp; FROM OUR KITCHEN &nbsp;✦&nbsp; FROM OUR KITCHEN &nbsp;✦&nbsp; FROM OUR KITCHEN &nbsp;✦&nbsp; FROM OUR KITCHEN &nbsp;✦&nbsp; FROM OUR KITCHEN &nbsp;✦&nbsp; </span>
+      <span>FROM OUR KITCHEN &nbsp;✦&nbsp; FROM OUR KITCHEN &nbsp;✦&nbsp; FROM OUR KITCHEN &nbsp;✦&nbsp; FROM OUR KITCHEN &nbsp;✦&nbsp; FROM OUR KITCHEN &nbsp;✦&nbsp; FROM OUR KITCHEN &nbsp;✦&nbsp; </span>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       SECTION — PRODUCTS 2.0
+  ══════════════════════════════════════ -->
+  <section class="products-section" id="products" aria-label="Our dishes">
+
+    <div class="products-header">
+      <span class="products-eyebrow" data-i18n="products-eyebrow">Dal forno · From the oven</span>
+    </div>
+
+    <!-- Product 1: text left, image right -->
+    <div class="product-row product-row--reverse" data-index="1" style="border-color: rgb(255, 255, 255); background-color: rgb(255, 255, 255)">
+      <div class="product-text">
+        <span class="product-num">01</span>
+        <h2 class="product-title">Saltimbocca<br>alla Parma</h2>
+        <p class="product-desc" data-i18n="prod-1-desc">Prosciutto di Parma que se deshace en            la lengua, mozzarella fior di latte de           cremosidad delicada, rúcula fresca con su punto amargo justo, y tomates cherry que estallan dulces en cada mordisco.</p>
+      </div>
+      <div class="product-img-wrap">
+        <img src="images/product-1.webp" alt="Saltimbocca alla Parma" loading="lazy" style="width: 700px; object-fit: contain" />
+      </div>
+    </div>
+
+    <!-- Product 2: image left, text right -->
+    <div class="product-row product-row--reverse" data-index="2">
+      <div class="product-text">
+        <span class="product-num">02</span>
+        <h2 class="product-title">Chef's best<br>lasagne</h2>
+        <p class="product-desc" data-i18n="prod-2-desc">Capas de pasta fresca, ragú de cocción lenta y bechamel cremosa. La lasaña como debe ser: generosa, honesta y sin atajos. El plato que te reconcilia con el mundo.</p>
+      </div>
+      <div class="product-img-wrap">
+        <img src="images/product-3.webp" alt="Chef's best lasagne" loading="lazy" />
+      </div>
+    </div>
+
+    <!-- Product 3: text left, image right -->
+    <div class="product-row product-row--reverse" data-index="3">
+      <div class="product-text">
+        <span class="product-num">03</span>
+        <h2 class="product-title">The best<br>Italian's bits</h2>
+        <p class="product-desc" data-i18n="prod-3-desc">Cinco quesos con denominación de origen, seleccionados para recorrer Italia en un solo bocado. Los acompañamos con nueces tostadas, miel artesanal y tomates cherry desecados que aportan ese punto dulce y concentrado que lo cambia todo. Para compartir — o no.</p>
+      </div>
+      <div class="product-img-wrap">
+        <img src="images/product-2.webp" alt="The best Italian bits" loading="lazy" />
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ══════════════════════════════════════
+       SECTION — COCKTAIL BAR
+  ══════════════════════════════════════ -->
+  <section class="cocktails-section" id="cocktails" aria-label="Cocktail bar">
+
+    <div class="cocktails-header">
+      <span class="cocktails-eyebrow" data-i18n="cocktails-eyebrow">Cocktail bar · Bebidas</span>
+      <h2 class="cocktails-title">OUR<br><span class="cocktails-title-outline">COCKTAIL BAR</span></h2>
+    </div>
+
+    <!-- Carousel track -->
+    <div class="cocktails-carousel-wrap">
+      <div class="cocktails-track" id="cocktailsTrack">
+
+        <!-- 1 -->
+        <div class="cocktail-card">
+          <div class="cocktail-img-wrap">
+            <img src="images/cocktail-spritz.jpg" alt="Aperol Spritz" loading="lazy" />
+          </div>
+          <div class="cocktail-info">
+            <span class="cocktail-num">01</span>
+            <h3 class="cocktail-name">Aperol Spritz</h3>
+            <p class="cocktail-desc" data-i18n="cocktail-1-desc">Aperol, prosecco, soda, naranja. El brindis perfecto antes de la pizza.</p>
+          </div>
+        </div>
+
+        <!-- 2 -->
+        <div class="cocktail-card">
+          <div class="cocktail-img-wrap">
+            <img src="images/cocktail-negroni.jpg" alt="Negroni" loading="lazy" />
+          </div>
+          <div class="cocktail-info">
+            <span class="cocktail-num">02</span>
+            <h3 class="cocktail-name">Negroni</h3>
+            <p class="cocktail-desc" data-i18n="cocktail-2-desc">Gin, Campari, vermut rojo. Amargo, elegante, sin compromiso.</p>
+          </div>
+        </div>
+
+        <!-- 3 -->
+        <div class="cocktail-card">
+          <div class="cocktail-img-wrap">
+            <img src="images/cocktail-americano.jpg" alt="Americano" loading="lazy" />
+          </div>
+          <div class="cocktail-info">
+            <span class="cocktail-num">03</span>
+            <h3 class="cocktail-name">Americano</h3>
+            <p class="cocktail-desc" data-i18n="cocktail-3-desc">Campari, vermut rojo, soda. Refrescante y con carácter italiano.</p>
+          </div>
+        </div>
+
+        <!-- 4 -->
+        <div class="cocktail-card">
+          <div class="cocktail-img-wrap">
+            <img src="images/cocktail-espresso-martini.jpg" alt="Espresso Martini" loading="lazy" />
+          </div>
+          <div class="cocktail-info">
+            <span class="cocktail-num">04</span>
+            <h3 class="cocktail-name">Espresso Martini</h3>
+            <p class="cocktail-desc" data-i18n="cocktail-4-desc">Vodka, licor de café, espresso doble. El final perfecto de la noche.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Nav arrows -->
+      <button class="cocktail-arrow cocktail-arrow--prev" id="cocktailPrev" aria-label="Previous">&#8592;</button>
+      <button class="cocktail-arrow cocktail-arrow--next" id="cocktailNext" aria-label="Next">&#8594;</button>
+
+      <!-- Dots -->
+      <div class="cocktail-dots" id="cocktailDots">
+        <span class="cocktail-dot active"></span>
+        <span class="cocktail-dot"></span>
+        <span class="cocktail-dot"></span>
+        <span class="cocktail-dot"></span>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ══════════════════════════════════════
+       SECTION — REVIEWS / RANKINGS
+  ══════════════════════════════════════ -->
+  <section class="reviews-section" aria-label="Customer rankings">
+    <div class="reviews-inner">
+      <div class="reviews-copy">
+        <span class="reviews-eyebrow" data-i18n="reviews-eyebrow">Reseñas · Rankings</span>
+        <h2 class="reviews-title" data-i18n="reviews-title">Valorada por quienes siempre vuelven</h2>
+      </div>
+
+      <div class="reviews-grid" aria-label="Google and Just Eat rankings">
+        <article class="review-card">
+          <div class="review-logo review-logo--google" aria-label="Google">
+            <span class="google-g">G</span><span class="google-o1">o</span><span class="google-o2">o</span><span class="google-g">g</span><span class="google-l">l</span><span class="google-e">e</span>
+          </div>
+          <div class="review-stars" aria-label="5 out of 5 stars">
+            <span aria-hidden="true">★</span><span aria-hidden="true">★</span><span aria-hidden="true">★</span><span aria-hidden="true">★</span><span aria-hidden="true">★</span>
+          </div>
+          <p data-i18n="reviews-google">Ranking Google</p>
+        </article>
+
+        <article class="review-card review-card--orange">
+          <div class="review-logo review-logo--justeat" aria-label="Just Eat">
+            <svg viewBox="0 0 184 36" role="img" aria-hidden="true" focusable="false">
+              <text x="0" y="27" font-family="Arial Black, Arial, sans-serif" font-size="27" font-weight="900" letter-spacing="-1">JUST EAT</text>
+            </svg>
+          </div>
+          <div class="review-stars" aria-label="5 out of 5 stars">
+            <span aria-hidden="true">★</span><span aria-hidden="true">★</span><span aria-hidden="true">★</span><span aria-hidden="true">★</span><span aria-hidden="true">★</span>
+          </div>
+          <p data-i18n="reviews-justeat">Ranking Just Eat</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       SECTION 3 — SCROLLING MARQUEE + WOOD PANEL (hidden — to be replaced)
+  ══════════════════════════════════════
+  <section class="marquee-section" id="marquee" aria-label="One pizza a day">
+
+    <div class="marquee-bg" aria-hidden="true">
+      <img src="images/gibraltar.jpg" alt="" />
+    </div>
+
+    <div class="wood-panel" id="woodPanel" aria-hidden="true">
+      <img src="images/woodboard-transparent.webp" alt="Pizza on a wood board" onerror="this.style.display='none'" />
+    </div>
+
+    <div class="marquee-text-track" aria-label="One pizza a day, keep the doctor away">
+      <div class="marquee-line marquee-line--auto" id="marqueeLineTop">
+        <span>ONE PIZZA A DAY&nbsp;·&nbsp;</span>
+        <span>ONE PIZZA A DAY&nbsp;·&nbsp;</span>
+        <span>ONE PIZZA A DAY&nbsp;·&nbsp;</span>
+        <span>ONE PIZZA A DAY&nbsp;·&nbsp;</span>
+      </div>
+      <div class="marquee-line marquee-line--auto marquee-line--alt marquee-line--reverse" id="marqueeLineBot">
+        <span>KEEP THE DOCTOR AWAY&nbsp;·&nbsp;</span>
+        <span>KEEP THE DOCTOR AWAY&nbsp;·&nbsp;</span>
+        <span>KEEP THE DOCTOR AWAY&nbsp;·&nbsp;</span>
+        <span>KEEP THE DOCTOR AWAY&nbsp;·&nbsp;</span>
+      </div>
+    </div>
+
+  </section>
+  -->
+
+  <!-- ══════════════════════════════════════
+       SECTION 4 — CRUNCH (hidden — to be replaced)
+  ══════════════════════════════════════
+  <section class="crunch-section" id="crunch" aria-label="Crunch every bit">
+    <div class="crunch-bg" aria-hidden="true">
+      <img src="images/pizzeria-bw.jpg" alt="" onerror="this.style.display='none'" />
+    </div>
+    <div class="crunch-board" id="crunchBoard" aria-hidden="true">
+      <img src="images/foodboard-transparent.webp" alt="Artisan food on a wood board" onerror="this.style.display='none'" />
+    </div>
+    <div class="crunch-text-wrap">
+      <div class="crunch-text" aria-label="Crunch every bit">
+        <span class="line" id="crunchLine1">CRUNCH</span>
+        <span class="line" id="crunchLine2">EVERY <span class="word-outline">BIT</span></span>
+      </div>
+    </div>
+  </section>
+  -->
+
+  <!-- ══════════════════════════════════════
+       SECTION — LOCATION / FIND US
+  ══════════════════════════════════════ -->
+  <section class="location-section" id="contact" aria-label="Find us — location and hours">
+    <div class="location-inner">
+
+      <!-- Head -->
+      <div class="location-head" style="margin: 30px 0px 80px">
+        <span class="location-eyebrow" data-i18n="loc-eyebrow">Encuéntranos · Find Us</span>
+        <h2 class="location-title">
+          <span style="font-size: 80px">CALLE CARBONEROS 5,</span>
+          <span class="loc-outline">LA LÍNEA</span>
+        </h2>
+      </div>
+
+      <!-- Grid: info cards + map -->
+      <div class="location-grid">
+
+        <!-- Info column -->
+        <div class="loc-info">
+
+          <!-- Address -->
+          <div class="loc-card">
+            <div class="loc-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="20" height="20"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <strong data-i18n="loc-addr-label">Dirección</strong>
+              <p>Calle Carboneros 5<br>La Línea de la Concepción<br>11300 Cádiz, España</p>
+            </div>
+          </div>
+
+          <!-- Hours -->
+          <div class="loc-card">
+            <div class="loc-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="20" height="20"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div>
+              <strong data-i18n="loc-hours-label">Horario</strong>
+              <p data-i18n="loc-hours-text">Mié–Dom: 19:00–23:30<br><em>Lunes y Martes cerrado</em></p>
+            </div>
+          </div>
+
+          <!-- Phone -->
+          <div class="loc-card loc-card--accent">
+            <div class="loc-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="20" height="20"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6.06 6.06l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7a2 2 0 0 1 1.72 2.03z"/></svg>
+            </div>
+            <div>
+              <strong data-i18n="loc-contact-label">Teléfono</strong>
+              <a href="tel:+34856941295" class="loc-phone">+34 856 94 12 95</a>
+            </div>
+          </div>
+
+          <!-- Instagram -->
+          <div class="loc-card loc-card--social">
+            <div class="loc-icon loc-icon--green" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </div>
+            <div>
+              <strong data-i18n="loc-social-label">Instagram</strong>
+              <a href="https://www.instagram.com/losclandestinospizzeria/" target="_blank" rel="noopener" class="loc-insta">@losclandestinospizzeria</a>
+            </div>
+          </div>
+
+          <!-- CTA Buttons -->
+          <div class="loc-btns">
+            <a href="tel:+34856941295" class="loc-btn loc-btn--call">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="16" height="16"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6.06 6.06l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7a2 2 0 0 1 1.72 2.03z"/></svg>
+              <span data-i18n="loc-btn-call">Llamar ahora</span>
+            </a>
+            <a href="https://www.google.com/maps/place/Pizzeria+Los+Clandestinos/@36.1606325,-5.3491208,17z" target="_blank" rel="noopener" class="loc-btn loc-btn--maps">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="16" height="16"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span data-i18n="loc-btn-maps">Cómo llegar</span>
+            </a>
+            <a href="tel:+34856941295" class="loc-btn loc-btn--order">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="16" height="16"><path d="M4 4l7.5 18 2.5-7 7-2.5z"/><path d="M13.5 13.5L19 19"/></svg>
+              <span data-i18n="loc-btn-order">PIDE AHORA</span>
+            </a>
+          </div>
+
+        </div>
+
+        <!-- Map -->
+        <div class="loc-map">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d798.2!2d-5.3491208!3d36.1606325!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd0cb5c8c6afb4f7%3A0xe2dc0ed8f1c7e74a!2sPizzeria%20Los%20Clandestinos!5e0!3m2!1sen!2ses!4v1714300000000!5m2!1sen!2ses"
+            width="100%" height="100%"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Los Clandestinos Pizzería — Calle Carboneros 5, La Línea de la Concepción">
+          </iframe>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════ -->
+  <footer class="footer" aria-label="Contact and location">
+    <p class="footer__bottom" data-i18n="footer-bottom">
+      © 2026 Los Clandestinos Pizzería Italiana &nbsp;·&nbsp; Calle Carboneros 5, La Línea
+    </p>
+
+  </footer>
+
+  <!-- Main JS -->
+  <script src="js/main.js" defer></script>
+
+  <!-- ══════════════════════════════════════
+       TWEAKS — rounded button controls
+  ══════════════════════════════════════ -->
+  <style id="tweak-styles">
+    .nav__order-btn {
+      border-radius: var(--btn-radius, 40px) !important;
+    }
+    /* Tweaks panel chrome */
+    #tweaks-panel {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 280px;
+      background: #1a1a1a;
+      color: #ede4d3;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 12px;
+      padding: 16px 18px 18px;
+      font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
+      font-size: 13px;
+      z-index: 99999;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+      display: none;
+    }
+    #tweaks-panel.is-open { display: block; }
+    #tweaks-panel h3 {
+      margin: 0 0 14px;
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 700;
+      opacity: 0.7;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    #tweaks-panel .tweak-close {
+      background: transparent;
+      border: none;
+      color: #ede4d3;
+      font-size: 18px;
+      cursor: pointer;
+      opacity: 0.5;
+      line-height: 1;
+      padding: 0;
+    }
+    #tweaks-panel .tweak-close:hover { opacity: 1; }
+    #tweaks-panel label {
+      display: block;
+      font-size: 12px;
+      opacity: 0.75;
+      margin-bottom: 6px;
+    }
+    #tweaks-panel .tweak-row { margin-bottom: 14px; }
+    #tweaks-panel .tweak-value {
+      float: right;
+      font-variant-numeric: tabular-nums;
+      opacity: 0.9;
+    }
+    #tweaks-panel input[type="range"] {
+      width: 100%;
+      accent-color: #c8161d;
+    }
+    #tweaks-panel .tweak-preset-row {
+      display: flex;
+      gap: 6px;
+    }
+    #tweaks-panel .tweak-preset {
+      flex: 1;
+      padding: 6px 8px;
+      background: rgba(255,255,255,0.06);
+      color: #ede4d3;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 6px;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      font-family: inherit;
+    }
+    #tweaks-panel .tweak-preset:hover { background: rgba(255,255,255,0.12); }
+    #tweaks-panel .tweak-preset.is-active {
+      background: #c8161d;
+      border-color: #c8161d;
+    }
+  </style>
+
+  <div id="tweaks-panel" role="dialog" aria-label="Tweaks">
+    <h3>
+      <span>Tweaks</span>
+      <button class="tweak-close" aria-label="Close">×</button>
+    </h3>
+    <div class="tweak-row">
+      <label for="tweak-radius">
+        Button radius
+        <span class="tweak-value" id="tweak-radius-val">40px</span>
+      </label>
+      <input type="range" id="tweak-radius" min="0" max="40" step="1" value="40" />
+    </div>
+    <div class="tweak-row">
+      <label>Presets</label>
+      <div class="tweak-preset-row">
+        <button type="button" class="tweak-preset" data-radius="0">Sharp</button>
+        <button type="button" class="tweak-preset" data-radius="6">Soft</button>
+        <button type="button" class="tweak-preset" data-radius="14">Rounded</button>
+        <button type="button" class="tweak-preset" data-radius="40">Pill</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+      "btnRadius": 40,
+      "mood": "fuego",
+      "motion": true
+    }/*EDITMODE-END*/;
+
+    const panel = document.getElementById('tweaks-panel');
+    const slider = document.getElementById('tweak-radius');
+    const valLabel = document.getElementById('tweak-radius-val');
+    const closeBtn = panel.querySelector('.tweak-close');
+    const presets = panel.querySelectorAll('.tweak-preset');
+
+    function applyRadius(px) {
+      document.documentElement.style.setProperty('--btn-radius', px + 'px');
+      slider.value = px;
+      valLabel.textContent = px + 'px';
+      presets.forEach(p => {
+        p.classList.toggle('is-active', Number(p.dataset.radius) === Number(px));
+      });
+    }
+
+    applyRadius(TWEAK_DEFAULTS.btnRadius);
+
+    function persist(px) {
+      try {
+        window.parent.postMessage({
+          type: '__edit_mode_set_keys',
+          edits: { btnRadius: Number(px) }
+        }, '*');
+      } catch (_) {}
+    }
+
+    slider.addEventListener('input', e => {
+      const px = Number(e.target.value);
+      applyRadius(px);
+      persist(px);
+    });
+
+    presets.forEach(p => {
+      p.addEventListener('click', () => {
+        const px = Number(p.dataset.radius);
+        applyRadius(px);
+        persist(px);
+      });
+    });
+
+    closeBtn.addEventListener('click', () => {
+      panel.classList.remove('is-open');
+      try {
+        window.parent.postMessage({ type: '__edit_mode_dismissed' }, '*');
+      } catch (_) {}
+    });
+
+    // Tweaks protocol — register listener BEFORE announcing availability
+    window.addEventListener('message', (e) => {
+      if (!e.data || typeof e.data !== 'object') return;
+      if (e.data.type === '__activate_edit_mode') {
+        panel.classList.add('is-open');
+      } else if (e.data.type === '__deactivate_edit_mode') {
+        panel.classList.remove('is-open');
+      }
+    });
+
+    try {
+      window.parent.postMessage({ type: '__edit_mode_available' }, '*');
+    } catch (_) {}
+  })();
+  </script>
+
+<script data-pplx-inline-edit>
+(function () {
+  if (window === window.top) return;
+
+  const allowedParentOrigins = ["https://www.perplexity.ai","https://perplexity.ai","https://testing.perplexity.ai","https://staging.perplexity.ai","https://*.preview.i.perplexity.ai","http://localhost:3000","http://127.0.0.1:3000","http://localhost:5173","http://127.0.0.1:5173"];
+  const MAX_FONT_BYTES = 500 * 1024;
+  const MAX_TOTAL_FONT_BYTES = 2 * 1024 * 1024;
+  let scrollForwarding = false;
+  let scrollRaf = 0;
+  let trustedTopOrigin = null;
+
+  // Allow entries like "https://*.preview.i.perplexity.ai" — the wildcard
+  // matches a single DNS label (no dots), so "https://*.foo" cannot stretch
+  // across multiple labels.
+  function matchesAllowedOrigin(origin) {
+    if (!origin) return false;
+    for (const entry of allowedParentOrigins) {
+      if (!entry.includes("*")) {
+        if (entry === origin) return true;
+        continue;
+      }
+      const pattern = new RegExp(
+        "^" +
+          entry.replace(/[.+?^${}()|[\]\\]/g, "\\$&").replace(/\*/g, "[^.]+") +
+          "$",
+      );
+      if (pattern.test(origin)) return true;
+    }
+    return false;
+  }
+
+  // Trust decision: when the sender is same-origin-visible (event.origin is a
+  // real origin like https://www.perplexity.ai) we trust event.origin directly.
+  // When event.origin is "null" (opaque broker srcdoc), we fall back to the
+  // broker's stamped `parentOrigin` to identify the top window. The fallback
+  // is claim-only — we rely on the browser's native `targetOrigin` enforcement
+  // on the response path (see postToTrustedTop) to ensure replies can't be
+  // delivered to anyone but the actual top window of that claimed origin.
+  function getTrustedParentOrigin(event) {
+    const forwardedParentOrigin =
+      typeof event.data.parentOrigin === "string" ? event.data.parentOrigin : null;
+    const parentOrigin = event.origin === "null" ? forwardedParentOrigin : event.origin;
+    return matchesAllowedOrigin(parentOrigin) ? parentOrigin : null;
+  }
+
+  // All responses go to window.top with targetOrigin = the allowlisted origin.
+  // An attacker that iframes us inside their own null-origin broker can claim
+  // any parentOrigin they like, but the browser will drop the reply whenever
+  // the real top's origin doesn't match — so the screenshot never leaves.
+  function postToTrustedTop(message) {
+    if (!trustedTopOrigin) return;
+    try {
+      window.top.postMessage(message, trustedTopOrigin);
+    } catch (_error) {}
+  }
+
+  function inlineAll(original, clone) {
+    if (original.nodeType !== 1 || clone.nodeType !== 1) return;
+
+    try {
+      const computedStyle = getComputedStyle(original);
+      // cssText on a computed style is the serialized declaration in modern
+      // Chromium/Safari — a single read beats enumerating ~400 longhand
+      // properties. Firefox returns "" here, so we fall back on empty.
+      const serialized = computedStyle.cssText;
+      if (serialized) {
+        clone.style.cssText = serialized;
+      } else {
+        const parts = new Array(computedStyle.length);
+        for (let index = 0; index < computedStyle.length; index += 1) {
+          const property = computedStyle[index];
+          parts[index] = `${property}:${computedStyle.getPropertyValue(property)};`;
+        }
+        clone.style.cssText = parts.join("");
+      }
+    } catch (_error) {}
+
+    const originalChildren = original.children;
+    const clonedChildren = clone.children;
+    for (
+      let index = 0;
+      index < originalChildren.length && index < clonedChildren.length;
+      index += 1
+    ) {
+      inlineAll(originalChildren[index], clonedChildren[index]);
+    }
+  }
+
+  function extractFontUrl(srcValue) {
+    const matches = [
+      ...srcValue.matchAll(
+        /url\(["']?([^"')]+)["']?\)(?:\s*format\(["']?([^"')]+)["']?\))?/gi,
+      ),
+    ];
+    if (matches.length === 0) return null;
+    const woff2 = matches.find((m) => m[2] && m[2].toLowerCase().includes("woff2"));
+    if (woff2) return woff2[1];
+    const woff = matches.find((m) => m[2] && m[2].toLowerCase().includes("woff"));
+    if (woff) return woff[1];
+    return matches[0][1];
+  }
+
+  // Cache resolved font URL -> data URI across captures. Fonts on a page
+  // essentially never change, and a batch run emits multiple captures back to
+  // back — without this we'd refetch + re-base64 every time.
+  const fontDataUriCache = new Map();
+  const SRC_DECLARATION_RE = /src\s*:\s*[^;}]+/i;
+
+  async function fetchAsDataUri(url) {
+    if (fontDataUriCache.has(url)) return fontDataUriCache.get(url);
+    let dataUri = null;
+    try {
+      const response = await fetch(url, { mode: "cors", credentials: "omit" });
+      if (response.ok) {
+        const blob = await response.blob();
+        if (blob.size <= MAX_FONT_BYTES) {
+          dataUri = await new Promise((resolve) => {
+            const reader = new FileReader();
+            reader.onloadend = () =>
+              resolve(typeof reader.result === "string" ? reader.result : null);
+            reader.onerror = () => resolve(null);
+            reader.readAsDataURL(blob);
+          });
+        }
+      }
+    } catch (_error) {
+      dataUri = null;
+    }
+    fontDataUriCache.set(url, dataUri);
+    return dataUri;
+  }
+
+  function collectFontFaceRuleTexts() {
+    const rules = [];
+    for (const sheet of document.styleSheets) {
+      let cssRules;
+      try {
+        cssRules = sheet.cssRules;
+      } catch (_error) {
+        continue;
+      }
+      if (!cssRules) continue;
+      for (const rule of cssRules) {
+        const cssText = rule.cssText || "";
+        if (cssText.startsWith("@font-face")) rules.push(cssText);
+      }
+    }
+    return rules;
+  }
+
+  async function buildInlinedFontCss() {
+    const ruleTexts = collectFontFaceRuleTexts();
+    if (ruleTexts.length === 0) return null;
+
+    const resolved = ruleTexts.map((cssText) => {
+      if (!SRC_DECLARATION_RE.test(cssText)) return null;
+      const srcMatch = cssText.match(/src\s*:\s*([^;}]+)[;}]/i);
+      if (!srcMatch) return null;
+      const url = extractFontUrl(srcMatch[1]);
+      if (!url) return null;
+      try {
+        return { cssText, url: new URL(url, document.baseURI).href };
+      } catch (_error) {
+        return null;
+      }
+    });
+
+    const dataUris = await Promise.all(
+      resolved.map((entry) => (entry ? fetchAsDataUri(entry.url) : Promise.resolve(null))),
+    );
+
+    const inlined = [];
+    let totalBytes = 0;
+    for (let index = 0; index < resolved.length; index += 1) {
+      const entry = resolved[index];
+      const dataUri = dataUris[index];
+      if (!entry || !dataUri) continue;
+      const approxBytes = dataUri.length * 0.75;
+      if (totalBytes + approxBytes > MAX_TOTAL_FONT_BYTES) break;
+      totalBytes += approxBytes;
+      inlined.push(entry.cssText.replace(SRC_DECLARATION_RE, `src: url("${dataUri}")`));
+    }
+    return inlined.length > 0 ? inlined.join("\n") : null;
+  }
+
+  function stripExternal(clone) {
+    const images = clone.querySelectorAll("img");
+    for (let index = 0; index < images.length; index += 1) {
+      const src = images[index].getAttribute("src");
+      if (src && !src.startsWith("data:")) images[index].removeAttribute("src");
+    }
+
+    const elements = clone.querySelectorAll("*");
+    for (let index = 0; index < elements.length; index += 1) {
+      const style = elements[index].style.cssText;
+      if (style && style.includes("url(")) {
+        elements[index].style.cssText = style.replace(
+          /url\(["']?(?!data:)[^)"']*["']?\)/gi,
+          "none",
+        );
+      }
+    }
+  }
+
+  function emitScroll() {
+    scrollRaf = 0;
+    if (!scrollForwarding) return;
+    postToTrustedTop({
+      type: "INLINE_EDIT_SCROLL",
+      scrollX: window.scrollX,
+      scrollY: window.scrollY,
+    });
+  }
+
+  window.addEventListener(
+    "scroll",
+    function () {
+      if (!scrollForwarding || scrollRaf) return;
+      scrollRaf = requestAnimationFrame(emitScroll);
+    },
+    { passive: true, capture: true },
+  );
+
+  async function handleCaptureRequest(event) {
+    const requestId = event.data.requestId;
+    const scrollX = window.scrollX;
+    const scrollY = window.scrollY;
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+
+    function postResult(dataUrl) {
+      postToTrustedTop({
+        type: "INLINE_EDIT_SCREENSHOT_RESULT",
+        requestId,
+        dataUrl,
+        scrollX,
+        scrollY,
+      });
+    }
+
+    try {
+      // Wait for any pending web fonts to resolve so both inline metrics and
+      // the @font-face inlining below see the same loaded faces.
+      if (document.fonts && document.fonts.ready) {
+        try {
+          await document.fonts.ready;
+        } catch (_error) {}
+      }
+
+      const clone = document.documentElement.cloneNode(true);
+      inlineAll(document.documentElement, clone);
+
+      const removedNodes = clone.querySelectorAll("script,link[rel=\"stylesheet\"],style");
+      for (let index = 0; index < removedNodes.length; index += 1) {
+        removedNodes[index].remove();
+      }
+
+      stripExternal(clone);
+
+      // Re-embed web fonts as data-URI @font-face rules so the SVG rasterizer
+      // can resolve them — external font URLs aren't fetched during
+      // foreignObject rendering, which would otherwise force a fallback face
+      // and change text metrics.
+      const inlinedFontCss = await buildInlinedFontCss();
+      if (inlinedFontCss) {
+        const styleEl = document.createElement("style");
+        styleEl.textContent = inlinedFontCss;
+        const head = clone.querySelector("head");
+        if (head) head.appendChild(styleEl);
+        else clone.insertBefore(styleEl, clone.firstChild);
+      }
+
+      const html = new XMLSerializer().serializeToString(clone);
+      const svg =
+        `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}">` +
+        '<foreignObject width="100%" height="100%">' +
+        `<div xmlns="http://www.w3.org/1999/xhtml" style="width:${width}px;height:${height}px;overflow:hidden">` +
+        `<div style="transform:translate(-${scrollX}px,-${scrollY}px);transform-origin:top left">` +
+        html +
+        "</div></div></foreignObject></svg>";
+      const svgUrl = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}`;
+      const image = new Image();
+      image.onload = function () {
+        const canvas = document.createElement("canvas");
+        canvas.width = width;
+        canvas.height = height;
+        canvas.getContext("2d").drawImage(image, 0, 0);
+        postResult(canvas.toDataURL("image/png"));
+      };
+      image.onerror = function () {
+        postResult(null);
+      };
+      image.src = svgUrl;
+    } catch (_error) {
+      postResult(null);
+    }
+  }
+
+  window.addEventListener("message", function (event) {
+    if (!event.data) return;
+    // Only accept messages from the direct parent frame. Blocks sibling /
+    // unrelated-window postMessage senders that could otherwise reach us.
+    if (event.source !== window.parent) return;
+
+    const trustedParentOrigin = getTrustedParentOrigin(event);
+    if (!trustedParentOrigin) return;
+    trustedTopOrigin = trustedParentOrigin;
+
+    if (event.data.type === "INLINE_EDIT_SCROLL_START") {
+      scrollForwarding = true;
+      emitScroll();
+      return;
+    }
+
+    if (event.data.type === "INLINE_EDIT_SCROLL_STOP") {
+      scrollForwarding = false;
+      if (scrollRaf) cancelAnimationFrame(scrollRaf);
+      scrollRaf = 0;
+      return;
+    }
+
+    if (event.data.type !== "INLINE_EDIT_CAPTURE_REQUEST") return;
+
+    handleCaptureRequest(event);
+  });
+})();
+
+</script></body>
+</html>
