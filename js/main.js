@@ -593,7 +593,7 @@ function initProductSection() {
    ============================================= */
 function initCtaBanner() {
   const rows = document.querySelectorAll('.product-row');
-  const thirdRow = rows[2];
+  const thirdRow = rows[rows.length - 1];
   if (!thirdRow || document.querySelector('.cta-banner')) return;
 
   const lang = document.documentElement.lang || 'es';
