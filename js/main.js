@@ -446,13 +446,24 @@ function initPizzaReveal() {
    Red logo on bright (cream/white) backgrounds,
    white/cream logo on red or dark backgrounds
    ============================================= */
+let _logoSwitchInited = false;
 function initLogoColorSwitch() {
+  // Guard: only init once — this function is called both at DOMContentLoaded
+  // and inside init() after GSAP loads. Running it twice creates two observers
+  // that fight each other and cause the logo to flicker to red on first load.
+  if (_logoSwitchInited) return;
+  _logoSwitchInited = true;
+
   const logo  = document.getElementById('navLogo');
   const navEl = document.querySelector('.nav');
   if (!logo) return;
 
   const LOGO_WHITE = 'images/logo-white.svg';
   const LOGO_RED   = 'images/logo-red.svg';
+
+  // Force white immediately — page always starts at the top (dark hero).
+  logo.src = LOGO_WHITE;
+  navEl && navEl.classList.remove('nav--light');
 
   const darkSections = [
     document.querySelector('.hero'),
@@ -462,15 +473,14 @@ function initLogoColorSwitch() {
     document.querySelector('.footer'),
   ].filter(Boolean);
 
-  let darkCount = 0;
+  // Use a Set so each section counts once regardless of observer firing order.
+  const visibleDark = new Set();
 
   function update() {
-    if (darkCount > 0) {
-      // Dark / coloured background — white logo
+    if (visibleDark.size > 0) {
       logo.src = LOGO_WHITE;
       navEl && navEl.classList.remove('nav--light');
     } else {
-      // Light background (white / cream) — red logo
       logo.src = LOGO_RED;
       navEl && navEl.classList.add('nav--light');
     }
@@ -478,8 +488,11 @@ function initLogoColorSwitch() {
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-      if (entry.isIntersecting) darkCount++;
-      else darkCount = Math.max(0, darkCount - 1);
+      if (entry.isIntersecting) {
+        visibleDark.add(entry.target);
+      } else {
+        visibleDark.delete(entry.target);
+      }
     });
     update();
   }, {
@@ -488,9 +501,6 @@ function initLogoColorSwitch() {
   });
 
   darkSections.forEach(s => observer.observe(s));
-
-  // Set correct logo on load
-  update();
 }
 
 /* =============================================
@@ -593,8 +603,8 @@ function initProductSection() {
    ============================================= */
 function initCtaBanner() {
   const rows = document.querySelectorAll('.product-row');
-  const thirdRow = rows[rows.length - 1];
-  if (!thirdRow || document.querySelector('.cta-banner')) return;
+  const lastRow = rows[rows.length - 1];
+  if (!lastRow || document.querySelector('.cta-banner')) return;
 
   const lang = document.documentElement.lang || 'es';
   const t = i18n[lang] || i18n['es'];
@@ -610,7 +620,7 @@ function initCtaBanner() {
       ${t['cta-btn'] || '¡PIDE AHORA!'}
     </a>
   `;
-  thirdRow.insertAdjacentElement('afterend', banner);
+  lastRow.insertAdjacentElement('afterend', banner);
 }
 
 /* =============================================
@@ -624,11 +634,7 @@ function initFallbackImages() {
     'images/pizza3.jpg':      'radial-gradient(circle, #FAC060 25%, #C84020 60%, #7A1810 100%)',
     'images/pizza4.jpg':      'radial-gradient(circle, #E0C070 20%, #B83820 55%, #6A1010 100%)',
     'images/pizza5.jpg':      'radial-gradient(circle, #F0D080 30%, #CC6020 65%, #882010 100%)',
-    'images/interior1.jpg':   'linear-gradient(135deg, #2A1A10 0%, #3C2418 100%)',
-    'images/interior2.jpg':   'linear-gradient(135deg, #1A1008 0%, #2C1C10 100%)',
-    'images/interior3.jpg':   'linear-gradient(135deg, #221408 0%, #34200E 100%)',
     'images/woodboard.jpg':   'linear-gradient(160deg, #8B6010 0%, #6A4808 60%, #4A3005 100%)',
-    'images/pizzeria-bw.jpg': 'linear-gradient(180deg, #1A1A1A 0%, #2C2C2C 100%)',
     'images/foodboard.jpg':   'linear-gradient(150deg, #7A5510 0%, #5A3808 60%, #3A2205 100%)',
     'images/pizza-whole.jpg': 'radial-gradient(circle, #E8B84B 25%, #C8202A 55%, #8B1A1A 80%, #5A1010 100%)',
     'images/pizzahands.jpg':  'linear-gradient(180deg, #1C1008 0%, #2A1810 50%, #1A0C04 100%)',
@@ -771,9 +777,9 @@ const i18n = {
     'word-0':             'JAMÓN',
     'word-1':             'QUESO',
     'word-2':             'ANCHOAS',
-    'label-refugio-text': 'NUESTRO NUEVO REFUGIO',
+    'label-refugio-text': 'NUEVA PIZZA REFUGIO',
     'about-eyebrow':      'La Línea · Desde 2023',
-    'about-body-1':       'Los Clandestinos nace de la amistad y del deseo de crear algo especial entre La Línea de la Concepción y la comunidad de Gibraltar. Un proyecto marcado por la frontera, el Brexit y la pandemia, donde encontramos en la pizza una forma de unir culturas y seguir adelante.',
+    'about-body-1':       'Los Clandestinos nace de la amistad y del deseo de crear algo especial entre La Línea de la Concepción y la comunidad fronteriza de Gibraltar. Un proyecto marcado por la frontera, el Brexit y la pandemia, donde encontramos en la pizza una forma de unir culturas y seguir adelante.',
     'about-body-2':       'Nuestras raíces vienen de Abruzzo, una tierra con un ritmo de vida muy cercano al andaluz: pasión por la buena comida, respeto por los tiempos y amor por los ingredientes. Ese saber hacer se traduce en cada detalle: la fermentación de la masa, la selección de harinas y los aceites de oliva de Málaga.',
     'about-body-3':       'Porque las recetas más sencillas son las que cuentan las mejores historias.',
     'tag-0':              'Horno de piedra',
@@ -781,9 +787,11 @@ const i18n = {
     'tag-2':              'Ingredientes DOP',
     'tag-3':              'Abierto desde 2023',
     'products-eyebrow':   'Dal forno · Desde el horno',
-    'prod-1-desc':        'Prosciutto di Parma que se deshace en la lengua, mozzarella fior di latte de cremosidad delicada, rúcula fresca con su punto amargo justo, y tomates cherry que estallan dulces en cada mordisco.',
+    'prod-1-desc':        'Prosciutto di Parma que se deshace en la boca, mozzarella di bufala de cremosidad delicada, rúcula fresca con su punto amargo justo, y tomates cherry que estallan dulcemente en cada bocado.',
     'prod-2-desc':        'Capas de pasta fresca, ragú de cocción lenta y bechamel cremosa. La lasaña como debe ser: generosa, honesta y sin atajos. El plato que te reconcilia con el mundo.',
     'prod-3-desc':        'Cinco quesos con denominación de origen, seleccionados para recorrer Italia en un solo bocado. Los acompañamos con nueces tostadas, miel artesanal y tomates cherry desecados que aportan ese punto dulce y concentrado que lo cambia todo. Para compartir — o no.',
+    'prod-4-title':       'Cannoli<br>Siciliani',
+    'prod-4-desc':        'Crocante exterior que cede ante un corazón de ricotta artesanal, suave y aterciopelado. Pepitas de chocolate y pistacho tostado completan esta oda a la tradición siciliana. Un final irresistible que merece su propio espacio.',
     'cocktails-eyebrow':  'Cocktail bar · Bebidas',
     'cocktail-1-desc':    'Aperol, prosecco, soda, naranja. El brindis perfecto antes de la pizza.',
     'cocktail-2-desc':    'Gin, Campari, vermut rojo. Amargo, elegante, sin compromiso.',
@@ -796,7 +804,7 @@ const i18n = {
     'footer-find-us':     'Encuéntranos',
     'footer-hours':       'Horario',
     'footer-mon-tue':     'Lun: Cerrado',
-    'footer-wed-sun':     'Dom / Mié–Sáb: 19:00–23:30',
+    'footer-wed-sun':     'Dom / Jue–Sáb: 13:00–15:30, 19:30–23:30 · Mar: 19:00–23:00 · Mié: 19:30–23:30',
     'footer-closed':      'Cerrado',
     'footer-cta':         'PIDE AHORA',
     'footer-bottom':      '© 2026 Los Clandestinos Pizzería Italiana · Calle Carboneros 5, La Línea',
@@ -804,7 +812,7 @@ const i18n = {
     'loc-eyebrow':        'Encuéntranos · Find Us',
     'loc-addr-label':     'Dirección',
     'loc-hours-label':    'Horario',
-    'loc-hours-text':     'Dom: 19:00–23:30 &nbsp;·&nbsp; Lun: Cerrado &nbsp;·&nbsp; Mar: Cerrado &nbsp;·&nbsp; Mié–Sáb: 19:00–23:30',
+    'loc-hours-text':     'Dom: 13:00–15:30, 19:30–23:30<br>Lun: Cerrado<br>Mar: 19:00–23:00<br>Mié: 19:30–23:30<br>Jue: 13:00–15:30, 19:30–23:30<br>Vie: 13:00–15:30, 19:30–23:30<br>Sáb: 13:00–15:30, 19:30–23:30',
     'loc-contact-label':  'Teléfono',
     'loc-social-label':   'Instagram',
     'loc-btn-call':       'Llamar ahora',
@@ -820,12 +828,12 @@ const i18n = {
     'page-sec-eyebrow':   'Importado directamente · Straight from Italy',
     'prod-p1-title':      'Harina<br>Maestra',
     'prod-p1-desc':       'La auténtica harina Pizzajuolo, aprobada por la AVPN (Associazione Verace Pizza Napoletana), realza las excelencias de la pizza napolitana, ofreciendo una corteza perfectamente desarrollada y dorada, una masa suave, elástica y fácilmente plegable, además de realzar el sabor de los ingredientes. como el tomate, la mozzarella y el aceite de oliva. Producido por la reconocida marca DallaGiovanna, es la elección favorita de los maestros pizzeros que buscan autenticidad y calidad para crear auténticas experiencias culinarias napolitanas.',
-    'prod-p2-title':      'Aceite<br>de Oliva',
+    'prod-p2-title':      'Aceite<br>de Oliva Olvera',
     'prod-p2-desc':       'De la provincia de Málaga, con el carácter del sur. Prensado en frío, de cosecha propia, con una acidez mínima que realza sin tapar. El acabado perfecto para cualquier pizza o tabla — y la razón por la que el primer bocado siempre sorprende.',
     'prod-p3-title':      'Quesos<br>DOP',
     'prod-p3-desc':       'Bufala Campana, Parmigiano Reggiano, Gorgonzola. Tres denominaciones de origen que no necesitan presentación. Los seleccionamos en origen, en su punto exacto de maduración. Porque en una buena pizza, el queso no es un ingrediente más: es el argumento.',
     'prod-p4-title':      'Embutidos<br>Italianos',
-    'prod-p4-desc':       'Mortadella de Bolonia, bresaola curada, speck di Angus y crudo di Parma. Producto auténtico, traído directamente de Italia. Los mismos que encuentras en las mejores tablas de Milán o Roma — ahora en La Línea.',
+    'prod-p4-desc':       'Los mejores embutidos encuentra en las mejores mesas de la familias italianas. Mortadella de Bolonia, bresaola curada, speck di Angus y crudo di Parma. Producto auténtico, traído directamente de Italia. Los mismos que encuentras en las mejores tablas de Milán o Roma — ahora en La Línea.',
     /* CTA Banner */
     'cta-eyebrow':        'Ingredientes de Italia · Directamente a ti',
     'cta-title':          '¿Listo para saborear la autenticidad?',
@@ -840,9 +848,9 @@ const i18n = {
     'word-0':             'HAM',
     'word-1':             'CHEESE',
     'word-2':             'ANCHOVIES',
-    'label-refugio-text': 'OUR NEW REFUGIO',
+    'label-refugio-text': 'OUR NEW PIZZA REFUGIO',
     'about-eyebrow':      'La Línea · Since 2023',
-    'about-body-1':       'Los Clandestinos was born from friendship and the desire to create something special between La Línea de la Concepción and the community of Gibraltar. A project shaped by the border, Brexit, and the pandemic—where we found in pizza a way to bring cultures together and keep moving forward.',
+    'about-body-1':       'Los Clandestinos was born from friendship and the desire to create something special between La Línea de la Concepción and the border community of Gibraltar. A project shaped by the border, Brexit, and the pandemic—where we found in pizza a way to bring cultures together and keep moving forward.',
     'about-body-2':       'Our roots come from Abruzzo, a land with a rhythm of life close to Andalusia: passion for good food, respect for time, and love for ingredients. That know-how shows up in every detail: dough fermentation, flour selection, and olive oils from Málaga.',
     'about-body-3':       'Because the simplest recipes are the ones that tell the best stories.',
     'tag-0':              'Stone oven',
@@ -853,6 +861,8 @@ const i18n = {
     'prod-1-desc':        'Prosciutto di Parma, fior di latte mozzarella, fresh rocket, cherry tomatoes.',
     'prod-2-desc':        'Slow-cooked bolognese ragù, homemade béchamel, parmigiano reggiano DOP, oven-baked.',
     'prod-3-desc':        'Selection of DOP Italian cheeses, cured meats, nuts and artisan jam.',
+    'prod-4-title':       'Cannoli<br>Siciliani',
+    'prod-4-desc':        'A crisp shell that yields to a heart of artisan ricotta — smooth and velvety. Chocolate chips and toasted pistachio complete this ode to Sicilian tradition. An irresistible finale that deserves its own moment.',
     'cocktails-eyebrow':  'Cocktail bar · Drinks',
     'cocktail-1-desc':    'Aperol, prosecco, soda, orange. The perfect toast before the pizza.',
     'cocktail-2-desc':    'Gin, Campari, red vermouth. Bitter, elegant, uncompromising.',
@@ -865,7 +875,7 @@ const i18n = {
     'footer-find-us':     'Find Us',
     'footer-hours':       'Hours',
     'footer-mon-tue':     'Mon: Closed',
-    'footer-wed-sun':     'Sun / Wed–Sat: 19:00–23:30',
+    'footer-wed-sun':     'Sun / Thu–Sat: 1:00–3:30 pm, 7:30–11:30 pm · Tue: 7:00–11:00 pm · Wed: 7:30–11:30 pm',
     'footer-closed':      'Closed',
     'footer-cta':         'ORDER NOW',
     'footer-bottom':      '© 2026 Los Clandestinos Italian Pizzeria · Calle Carboneros 5, La Línea',
@@ -873,7 +883,7 @@ const i18n = {
     'loc-eyebrow':        'Find Us · Encuéntranos',
     'loc-addr-label':     'Address',
     'loc-hours-label':    'Opening Hours',
-    'loc-hours-text':     'Sun: 19:00–23:30 &nbsp;·&nbsp; Mon: Closed &nbsp;·&nbsp; Tue: Closed &nbsp;·&nbsp; Wed–Sat: 19:00–23:30',
+    'loc-hours-text':     'Sun: 1–3:30 pm, 7:30–11:30 pm<br>Mon: Closed<br>Tue: 7–11 pm<br>Wed: 7:30–11:30 pm<br>Thu: 1–3:30 pm, 7:30–11:30 pm<br>Fri: 1–3:30 pm, 7:30–11:30 pm<br>Sat: 1–3:30 pm, 7:30–11:30 pm',
     'loc-contact-label':  'Phone',
     'loc-social-label':   'Instagram',
     'loc-btn-call':       'Call now',
@@ -889,7 +899,7 @@ const i18n = {
     'page-sec-eyebrow':   'Imported directly · Straight from Italy',
     'prod-p1-title':      'Italian<br>Flours',
     'prod-p1-desc':       'Type 00 and durum wheat semolina from Italian mills. The foundation of our perfect pizza: open crumb, light texture, unmistakable quality.',
-    'prod-p2-title':      'Olive<br>Oil',
+    'prod-p2-title':      'Olive<br>Oil Olvera',
     'prod-p2-desc':       'Single-varietal extra virgin olive oil from small producers in southern Italy. Intense, fruity, with the Mediterranean character every dish deserves.',
     'prod-p3-title':      'DOP<br>Cheeses',
     'prod-p3-desc':       'Parmigiano Reggiano, Grana Padano, Pecorino Romano and fior di latte mozzarella. All protected designation of origin — because we accept no imitations.',

@@ -1438,10 +1438,10 @@
   background: var(--black);
   min-height: 92vh;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: flex-start;
   overflow: hidden;
-  padding: 0 clamp(2rem, 6vw, 8rem) clamp(4rem, 8vw, 8rem);
+  padding: 0 clamp(2rem, 6vw, 8rem);
 }
 
 .productos-hero__bg {
@@ -1573,6 +1573,32 @@
 /* ============================================
    RESPONSIVE
 ============================================ */
+/* Logo badge next to product title */
+.product-title--with-badge {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 0.6rem;
+}
+.product-title__badge {
+  display: inline-block;
+  width: clamp(52px, 8vw, 80px);
+  height: clamp(52px, 8vw, 80px);
+  object-fit: contain;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.15);
+  background: #fff;
+  margin-bottom: 0.15em;
+  flex-shrink: 0;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+}
+@media (max-width: 600px) {
+  .product-title__badge {
+    width: 48px;
+    height: 48px;
+  }
+}
+
 @media (max-width: 768px) {
   .footer__inner { grid-template-columns: 1fr; gap: 2.5rem; padding: 2.5rem 1.5rem; }
   .footer__statement { padding: 2.5rem 1.5rem; gap: 0.8rem; }

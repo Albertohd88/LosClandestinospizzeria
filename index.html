@@ -135,7 +135,7 @@
       </svg>
     </div>
     <div class="pizza-label label-refugio" id="btnRefugio" role="button" tabindex="0" aria-pressed="false" data-i18n="label-refugio-text">
-      NUESTRO NUEVO REFUGIO
+      NUEVA PIZZA REFUGIO
     </div>
 
   </section>
@@ -147,11 +147,11 @@
     <div class="ticker-track" aria-hidden="true">
       <span>LOS MEJORES INGREDIENTES</span>
       <span class="ticker-sep">✦</span>
-      <span>UNA PIZZA QUE ES UNA OBRA DE ARTE</span>
+      <span>UNA PIZZA SIN FRONTERAS</span>
       <span class="ticker-sep">✦</span>
       <span>LOS MEJORES INGREDIENTES</span>
       <span class="ticker-sep">✦</span>
-      <span>UNA PIZZA QUE ES UNA OBRA DE ARTE</span>
+      <span>UNA PIZZA SIN FRONTERAS</span>
       <span class="ticker-sep">✦</span>
     </div>
   </section>
@@ -181,7 +181,7 @@
       </h2>
 
       <div class="about-body">
-        <p data-i18n="about-body-1">Los Clandestinos nace de la amistad y del deseo de crear algo especial entre La Línea de la Concepción y la comunidad de Gibraltar. Un proyecto marcado por la frontera, el Brexit y la pandemia, donde encontramos en la pizza una forma de unir culturas y seguir adelante.</p>
+        <p data-i18n="about-body-1">Los Clandestinos nace de la amistad y del deseo de crear algo especial entre La Línea de la Concepción y la comunidad fronteriza de Gibraltar. Un proyecto marcado por la frontera, el Brexit y la pandemia, donde encontramos en la pizza una forma de unir culturas y seguir adelante.</p>
         <p data-i18n="about-body-2">Nuestras raíces vienen de Abruzzo, una tierra con un ritmo de vida muy cercano al andaluz: pasión por la buena comida, respeto por los tiempos y amor por los ingredientes. Ese saber hacer se traduce en cada detalle: la fermentación de la masa, la selección de harinas y los aceites de oliva de Málaga.</p>
         <p data-i18n="about-body-3">Porque las recetas más sencillas son las que cuentan las mejores historias.</p>
       </div>
@@ -222,7 +222,7 @@
       <div class="product-text">
         <span class="product-num">01</span>
         <h2 class="product-title">Saltimbocca<br>alla Parma</h2>
-        <p class="product-desc" data-i18n="prod-1-desc">Prosciutto di Parma que se deshace en            la lengua, mozzarella fior di latte de           cremosidad delicada, rúcula fresca con su punto amargo justo, y tomates cherry que estallan dulces en cada mordisco.</p>
+        <p class="product-desc" data-i18n="prod-1-desc">Prosciutto di Parma que se deshace en la boca, mozzarella di bufala de cremosidad delicada, rúcula fresca con su punto amargo justo, y tomates cherry que estallan dulcemente en cada bocado.</p>
       </div>
       <div class="product-img-wrap">
         <img src="images/product-1.webp" alt="Saltimbocca alla Parma" loading="lazy" style="width: 700px; object-fit: contain" />
@@ -250,6 +250,18 @@
       </div>
       <div class="product-img-wrap">
         <img src="images/product-2.webp" alt="The best Italian bits" loading="lazy" />
+      </div>
+    </div>
+
+    <!-- Product 4: image left, text right -->
+    <div class="product-row product-row--reverse" data-index="4">
+      <div class="product-text">
+        <span class="product-num">04</span>
+        <h2 class="product-title" data-i18n="prod-4-title">Cannoli<br>Siciliani</h2>
+        <p class="product-desc" data-i18n="prod-4-desc">Crocante exterior que cede ante un corazón de ricotta artesanal, suave y aterciopelado. Pepitas de chocolate y pistacho tostado completan esta oda a la tradición siciliana. Un final irresistible que merece su propio espacio.</p>
+      </div>
+      <div class="product-img-wrap">
+        <img src="images/product-4.webp" alt="Cannoli Siciliani" loading="lazy" />
       </div>
     </div>
 
@@ -459,7 +471,7 @@
             </div>
             <div>
               <strong data-i18n="loc-hours-label">Horario</strong>
-              <p data-i18n="loc-hours-text">Mié–Dom: 19:00–23:30<br><em>Lunes y Martes cerrado</em></p>
+              <p data-i18n="loc-hours-text">Dom: 13:00–15:30, 19:30–23:30<br>Lun: Cerrado<br>Mar: 19:00–23:00<br>Mié: 19:30–23:30<br>Jue: 13:00–15:30, 19:30–23:30<br>Vie: 13:00–15:30, 19:30–23:30<br>Sáb: 13:00–15:30, 19:30–23:30</p>
             </div>
           </div>
 
@@ -533,513 +545,9 @@
   <!-- Main JS -->
   <script src="js/main.js" defer></script>
 
-  <!-- ══════════════════════════════════════
-       TWEAKS — rounded button controls
-  ══════════════════════════════════════ -->
-  <style id="tweak-styles">
-    .nav__order-btn {
-      border-radius: var(--btn-radius, 40px) !important;
-    }
-    /* Tweaks panel chrome */
-    #tweaks-panel {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      width: 280px;
-      background: #1a1a1a;
-      color: #ede4d3;
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 12px;
-      padding: 16px 18px 18px;
-      font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
-      font-size: 13px;
-      z-index: 99999;
-      box-shadow: 0 12px 40px rgba(0,0,0,0.4);
-      display: none;
-    }
-    #tweaks-panel.is-open { display: block; }
-    #tweaks-panel h3 {
-      margin: 0 0 14px;
-      font-size: 12px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      font-weight: 700;
-      opacity: 0.7;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    #tweaks-panel .tweak-close {
-      background: transparent;
-      border: none;
-      color: #ede4d3;
-      font-size: 18px;
-      cursor: pointer;
-      opacity: 0.5;
-      line-height: 1;
-      padding: 0;
-    }
-    #tweaks-panel .tweak-close:hover { opacity: 1; }
-    #tweaks-panel label {
-      display: block;
-      font-size: 12px;
-      opacity: 0.75;
-      margin-bottom: 6px;
-    }
-    #tweaks-panel .tweak-row { margin-bottom: 14px; }
-    #tweaks-panel .tweak-value {
-      float: right;
-      font-variant-numeric: tabular-nums;
-      opacity: 0.9;
-    }
-    #tweaks-panel input[type="range"] {
-      width: 100%;
-      accent-color: #c8161d;
-    }
-    #tweaks-panel .tweak-preset-row {
-      display: flex;
-      gap: 6px;
-    }
-    #tweaks-panel .tweak-preset {
-      flex: 1;
-      padding: 6px 8px;
-      background: rgba(255,255,255,0.06);
-      color: #ede4d3;
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 6px;
-      font-size: 11px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      cursor: pointer;
-      font-family: inherit;
-    }
-    #tweaks-panel .tweak-preset:hover { background: rgba(255,255,255,0.12); }
-    #tweaks-panel .tweak-preset.is-active {
-      background: #c8161d;
-      border-color: #c8161d;
-    }
-  </style>
 
-  <div id="tweaks-panel" role="dialog" aria-label="Tweaks">
-    <h3>
-      <span>Tweaks</span>
-      <button class="tweak-close" aria-label="Close">×</button>
-    </h3>
-    <div class="tweak-row">
-      <label for="tweak-radius">
-        Button radius
-        <span class="tweak-value" id="tweak-radius-val">40px</span>
-      </label>
-      <input type="range" id="tweak-radius" min="0" max="40" step="1" value="40" />
-    </div>
-    <div class="tweak-row">
-      <label>Presets</label>
-      <div class="tweak-preset-row">
-        <button type="button" class="tweak-preset" data-radius="0">Sharp</button>
-        <button type="button" class="tweak-preset" data-radius="6">Soft</button>
-        <button type="button" class="tweak-preset" data-radius="14">Rounded</button>
-        <button type="button" class="tweak-preset" data-radius="40">Pill</button>
-      </div>
-    </div>
-  </div>
 
-  <script>
-  (function () {
-    const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
-      "btnRadius": 40,
-      "mood": "fuego",
-      "motion": true
-    }/*EDITMODE-END*/;
 
-    const panel = document.getElementById('tweaks-panel');
-    const slider = document.getElementById('tweak-radius');
-    const valLabel = document.getElementById('tweak-radius-val');
-    const closeBtn = panel.querySelector('.tweak-close');
-    const presets = panel.querySelectorAll('.tweak-preset');
 
-    function applyRadius(px) {
-      document.documentElement.style.setProperty('--btn-radius', px + 'px');
-      slider.value = px;
-      valLabel.textContent = px + 'px';
-      presets.forEach(p => {
-        p.classList.toggle('is-active', Number(p.dataset.radius) === Number(px));
-      });
-    }
-
-    applyRadius(TWEAK_DEFAULTS.btnRadius);
-
-    function persist(px) {
-      try {
-        window.parent.postMessage({
-          type: '__edit_mode_set_keys',
-          edits: { btnRadius: Number(px) }
-        }, '*');
-      } catch (_) {}
-    }
-
-    slider.addEventListener('input', e => {
-      const px = Number(e.target.value);
-      applyRadius(px);
-      persist(px);
-    });
-
-    presets.forEach(p => {
-      p.addEventListener('click', () => {
-        const px = Number(p.dataset.radius);
-        applyRadius(px);
-        persist(px);
-      });
-    });
-
-    closeBtn.addEventListener('click', () => {
-      panel.classList.remove('is-open');
-      try {
-        window.parent.postMessage({ type: '__edit_mode_dismissed' }, '*');
-      } catch (_) {}
-    });
-
-    // Tweaks protocol — register listener BEFORE announcing availability
-    window.addEventListener('message', (e) => {
-      if (!e.data || typeof e.data !== 'object') return;
-      if (e.data.type === '__activate_edit_mode') {
-        panel.classList.add('is-open');
-      } else if (e.data.type === '__deactivate_edit_mode') {
-        panel.classList.remove('is-open');
-      }
-    });
-
-    try {
-      window.parent.postMessage({ type: '__edit_mode_available' }, '*');
-    } catch (_) {}
-  })();
-  </script>
-
-<script data-pplx-inline-edit>
-(function () {
-  if (window === window.top) return;
-
-  const allowedParentOrigins = ["https://www.perplexity.ai","https://perplexity.ai","https://testing.perplexity.ai","https://staging.perplexity.ai","https://*.preview.i.perplexity.ai","http://localhost:3000","http://127.0.0.1:3000","http://localhost:5173","http://127.0.0.1:5173"];
-  const MAX_FONT_BYTES = 500 * 1024;
-  const MAX_TOTAL_FONT_BYTES = 2 * 1024 * 1024;
-  let scrollForwarding = false;
-  let scrollRaf = 0;
-  let trustedTopOrigin = null;
-
-  // Allow entries like "https://*.preview.i.perplexity.ai" — the wildcard
-  // matches a single DNS label (no dots), so "https://*.foo" cannot stretch
-  // across multiple labels.
-  function matchesAllowedOrigin(origin) {
-    if (!origin) return false;
-    for (const entry of allowedParentOrigins) {
-      if (!entry.includes("*")) {
-        if (entry === origin) return true;
-        continue;
-      }
-      const pattern = new RegExp(
-        "^" +
-          entry.replace(/[.+?^${}()|[\]\\]/g, "\\$&").replace(/\*/g, "[^.]+") +
-          "$",
-      );
-      if (pattern.test(origin)) return true;
-    }
-    return false;
-  }
-
-  // Trust decision: when the sender is same-origin-visible (event.origin is a
-  // real origin like https://www.perplexity.ai) we trust event.origin directly.
-  // When event.origin is "null" (opaque broker srcdoc), we fall back to the
-  // broker's stamped `parentOrigin` to identify the top window. The fallback
-  // is claim-only — we rely on the browser's native `targetOrigin` enforcement
-  // on the response path (see postToTrustedTop) to ensure replies can't be
-  // delivered to anyone but the actual top window of that claimed origin.
-  function getTrustedParentOrigin(event) {
-    const forwardedParentOrigin =
-      typeof event.data.parentOrigin === "string" ? event.data.parentOrigin : null;
-    const parentOrigin = event.origin === "null" ? forwardedParentOrigin : event.origin;
-    return matchesAllowedOrigin(parentOrigin) ? parentOrigin : null;
-  }
-
-  // All responses go to window.top with targetOrigin = the allowlisted origin.
-  // An attacker that iframes us inside their own null-origin broker can claim
-  // any parentOrigin they like, but the browser will drop the reply whenever
-  // the real top's origin doesn't match — so the screenshot never leaves.
-  function postToTrustedTop(message) {
-    if (!trustedTopOrigin) return;
-    try {
-      window.top.postMessage(message, trustedTopOrigin);
-    } catch (_error) {}
-  }
-
-  function inlineAll(original, clone) {
-    if (original.nodeType !== 1 || clone.nodeType !== 1) return;
-
-    try {
-      const computedStyle = getComputedStyle(original);
-      // cssText on a computed style is the serialized declaration in modern
-      // Chromium/Safari — a single read beats enumerating ~400 longhand
-      // properties. Firefox returns "" here, so we fall back on empty.
-      const serialized = computedStyle.cssText;
-      if (serialized) {
-        clone.style.cssText = serialized;
-      } else {
-        const parts = new Array(computedStyle.length);
-        for (let index = 0; index < computedStyle.length; index += 1) {
-          const property = computedStyle[index];
-          parts[index] = `${property}:${computedStyle.getPropertyValue(property)};`;
-        }
-        clone.style.cssText = parts.join("");
-      }
-    } catch (_error) {}
-
-    const originalChildren = original.children;
-    const clonedChildren = clone.children;
-    for (
-      let index = 0;
-      index < originalChildren.length && index < clonedChildren.length;
-      index += 1
-    ) {
-      inlineAll(originalChildren[index], clonedChildren[index]);
-    }
-  }
-
-  function extractFontUrl(srcValue) {
-    const matches = [
-      ...srcValue.matchAll(
-        /url\(["']?([^"')]+)["']?\)(?:\s*format\(["']?([^"')]+)["']?\))?/gi,
-      ),
-    ];
-    if (matches.length === 0) return null;
-    const woff2 = matches.find((m) => m[2] && m[2].toLowerCase().includes("woff2"));
-    if (woff2) return woff2[1];
-    const woff = matches.find((m) => m[2] && m[2].toLowerCase().includes("woff"));
-    if (woff) return woff[1];
-    return matches[0][1];
-  }
-
-  // Cache resolved font URL -> data URI across captures. Fonts on a page
-  // essentially never change, and a batch run emits multiple captures back to
-  // back — without this we'd refetch + re-base64 every time.
-  const fontDataUriCache = new Map();
-  const SRC_DECLARATION_RE = /src\s*:\s*[^;}]+/i;
-
-  async function fetchAsDataUri(url) {
-    if (fontDataUriCache.has(url)) return fontDataUriCache.get(url);
-    let dataUri = null;
-    try {
-      const response = await fetch(url, { mode: "cors", credentials: "omit" });
-      if (response.ok) {
-        const blob = await response.blob();
-        if (blob.size <= MAX_FONT_BYTES) {
-          dataUri = await new Promise((resolve) => {
-            const reader = new FileReader();
-            reader.onloadend = () =>
-              resolve(typeof reader.result === "string" ? reader.result : null);
-            reader.onerror = () => resolve(null);
-            reader.readAsDataURL(blob);
-          });
-        }
-      }
-    } catch (_error) {
-      dataUri = null;
-    }
-    fontDataUriCache.set(url, dataUri);
-    return dataUri;
-  }
-
-  function collectFontFaceRuleTexts() {
-    const rules = [];
-    for (const sheet of document.styleSheets) {
-      let cssRules;
-      try {
-        cssRules = sheet.cssRules;
-      } catch (_error) {
-        continue;
-      }
-      if (!cssRules) continue;
-      for (const rule of cssRules) {
-        const cssText = rule.cssText || "";
-        if (cssText.startsWith("@font-face")) rules.push(cssText);
-      }
-    }
-    return rules;
-  }
-
-  async function buildInlinedFontCss() {
-    const ruleTexts = collectFontFaceRuleTexts();
-    if (ruleTexts.length === 0) return null;
-
-    const resolved = ruleTexts.map((cssText) => {
-      if (!SRC_DECLARATION_RE.test(cssText)) return null;
-      const srcMatch = cssText.match(/src\s*:\s*([^;}]+)[;}]/i);
-      if (!srcMatch) return null;
-      const url = extractFontUrl(srcMatch[1]);
-      if (!url) return null;
-      try {
-        return { cssText, url: new URL(url, document.baseURI).href };
-      } catch (_error) {
-        return null;
-      }
-    });
-
-    const dataUris = await Promise.all(
-      resolved.map((entry) => (entry ? fetchAsDataUri(entry.url) : Promise.resolve(null))),
-    );
-
-    const inlined = [];
-    let totalBytes = 0;
-    for (let index = 0; index < resolved.length; index += 1) {
-      const entry = resolved[index];
-      const dataUri = dataUris[index];
-      if (!entry || !dataUri) continue;
-      const approxBytes = dataUri.length * 0.75;
-      if (totalBytes + approxBytes > MAX_TOTAL_FONT_BYTES) break;
-      totalBytes += approxBytes;
-      inlined.push(entry.cssText.replace(SRC_DECLARATION_RE, `src: url("${dataUri}")`));
-    }
-    return inlined.length > 0 ? inlined.join("\n") : null;
-  }
-
-  function stripExternal(clone) {
-    const images = clone.querySelectorAll("img");
-    for (let index = 0; index < images.length; index += 1) {
-      const src = images[index].getAttribute("src");
-      if (src && !src.startsWith("data:")) images[index].removeAttribute("src");
-    }
-
-    const elements = clone.querySelectorAll("*");
-    for (let index = 0; index < elements.length; index += 1) {
-      const style = elements[index].style.cssText;
-      if (style && style.includes("url(")) {
-        elements[index].style.cssText = style.replace(
-          /url\(["']?(?!data:)[^)"']*["']?\)/gi,
-          "none",
-        );
-      }
-    }
-  }
-
-  function emitScroll() {
-    scrollRaf = 0;
-    if (!scrollForwarding) return;
-    postToTrustedTop({
-      type: "INLINE_EDIT_SCROLL",
-      scrollX: window.scrollX,
-      scrollY: window.scrollY,
-    });
-  }
-
-  window.addEventListener(
-    "scroll",
-    function () {
-      if (!scrollForwarding || scrollRaf) return;
-      scrollRaf = requestAnimationFrame(emitScroll);
-    },
-    { passive: true, capture: true },
-  );
-
-  async function handleCaptureRequest(event) {
-    const requestId = event.data.requestId;
-    const scrollX = window.scrollX;
-    const scrollY = window.scrollY;
-    const width = window.innerWidth;
-    const height = window.innerHeight;
-
-    function postResult(dataUrl) {
-      postToTrustedTop({
-        type: "INLINE_EDIT_SCREENSHOT_RESULT",
-        requestId,
-        dataUrl,
-        scrollX,
-        scrollY,
-      });
-    }
-
-    try {
-      // Wait for any pending web fonts to resolve so both inline metrics and
-      // the @font-face inlining below see the same loaded faces.
-      if (document.fonts && document.fonts.ready) {
-        try {
-          await document.fonts.ready;
-        } catch (_error) {}
-      }
-
-      const clone = document.documentElement.cloneNode(true);
-      inlineAll(document.documentElement, clone);
-
-      const removedNodes = clone.querySelectorAll("script,link[rel=\"stylesheet\"],style");
-      for (let index = 0; index < removedNodes.length; index += 1) {
-        removedNodes[index].remove();
-      }
-
-      stripExternal(clone);
-
-      // Re-embed web fonts as data-URI @font-face rules so the SVG rasterizer
-      // can resolve them — external font URLs aren't fetched during
-      // foreignObject rendering, which would otherwise force a fallback face
-      // and change text metrics.
-      const inlinedFontCss = await buildInlinedFontCss();
-      if (inlinedFontCss) {
-        const styleEl = document.createElement("style");
-        styleEl.textContent = inlinedFontCss;
-        const head = clone.querySelector("head");
-        if (head) head.appendChild(styleEl);
-        else clone.insertBefore(styleEl, clone.firstChild);
-      }
-
-      const html = new XMLSerializer().serializeToString(clone);
-      const svg =
-        `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}">` +
-        '<foreignObject width="100%" height="100%">' +
-        `<div xmlns="http://www.w3.org/1999/xhtml" style="width:${width}px;height:${height}px;overflow:hidden">` +
-        `<div style="transform:translate(-${scrollX}px,-${scrollY}px);transform-origin:top left">` +
-        html +
-        "</div></div></foreignObject></svg>";
-      const svgUrl = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}`;
-      const image = new Image();
-      image.onload = function () {
-        const canvas = document.createElement("canvas");
-        canvas.width = width;
-        canvas.height = height;
-        canvas.getContext("2d").drawImage(image, 0, 0);
-        postResult(canvas.toDataURL("image/png"));
-      };
-      image.onerror = function () {
-        postResult(null);
-      };
-      image.src = svgUrl;
-    } catch (_error) {
-      postResult(null);
-    }
-  }
-
-  window.addEventListener("message", function (event) {
-    if (!event.data) return;
-    // Only accept messages from the direct parent frame. Blocks sibling /
-    // unrelated-window postMessage senders that could otherwise reach us.
-    if (event.source !== window.parent) return;
-
-    const trustedParentOrigin = getTrustedParentOrigin(event);
-    if (!trustedParentOrigin) return;
-    trustedTopOrigin = trustedParentOrigin;
-
-    if (event.data.type === "INLINE_EDIT_SCROLL_START") {
-      scrollForwarding = true;
-      emitScroll();
-      return;
-    }
-
-    if (event.data.type === "INLINE_EDIT_SCROLL_STOP") {
-      scrollForwarding = false;
-      if (scrollRaf) cancelAnimationFrame(scrollRaf);
-      scrollRaf = 0;
-      return;
-    }
-
-    if (event.data.type !== "INLINE_EDIT_CAPTURE_REQUEST") return;
-
-    handleCaptureRequest(event);
-  });
-})();
-
-</script></body>
+</body>
 </html>
