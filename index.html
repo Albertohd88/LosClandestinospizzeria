@@ -3,10 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Los Clandestinos — Pizzería Italiana en La Línea de la Concepción (Cádiz)</title>
+  <title>Pizzería Italiana en La Línea de la Concepción | Los Clandestinos</title>
   <meta name="description" content="Pizzería italiana auténtica en La Línea de la Concepción, junto a Gibraltar. Pizza artesanal al horno de piedra con ingredientes italianos DOP. Calle Carboneros 5 · Reservas: +34 856 94 12 95.">
   <link rel="canonical" href="https://www.losclandestinospizzeria.es/">
   <meta name="robots" content="index, follow">
+  <meta name="geo.region" content="ES-CA">
+  <meta name="geo.placename" content="La Línea de la Concepción">
+  <meta name="geo.position" content="36.1606325;-5.3491208">
+  <meta name="ICBM" content="36.1606325, -5.3491208">
   <meta property="og:title" content="Los Clandestinos — Pizzería Italiana en La Línea de la Concepción">
   <meta property="og:description" content="Pizza artesanal al horno de piedra con ingredientes italianos DOP, a un paso de Gibraltar. Reservas: +34 856 94 12 95.">
   <meta property="og:type" content="restaurant">
@@ -55,6 +59,21 @@
     "servesCuisine": ["Italian", "Pizza"],
     "priceRange": "€€",
     "acceptsReservations": "True",
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 36.1606325,
+      "longitude": -5.3491208
+    },
+    "hasMap": "https://www.google.com/maps/place/Pizzeria+Los+Clandestinos/@36.1606325,-5.3491208,17z",
+    "areaServed": [
+      { "@type": "City", "name": "La Línea de la Concepción" },
+      { "@type": "Place", "name": "Gibraltar" }
+    ],
+    "hasMenu": "https://www.losclandestinospizzeria.es/productos.html",
+    "sameAs": [
+      "https://www.instagram.com/losclandestinospizzeria/",
+      "https://www.facebook.com/p/Los-Clandestinos-Pizzeria-Italiana-100057105144302/"
+    ],
     "openingHoursSpecification": [
       {
         "@type": "OpeningHoursSpecification",
@@ -143,32 +162,35 @@
     <!-- Floating pizza items in orbit -->
     <div class="pizza-orbit" aria-hidden="true">
       <div class="pizza-item" id="p1" data-layer="1" style="width:310px;height:310px">
-        <img src="images/pizza1.jpg" alt="Quattro Formaggi" />
+        <img src="images/pizza1.jpg" alt="Pizza Quattro Formaggi artesanal al horno de piedra" />
       </div>
       <div class="pizza-item" id="p2" data-layer="2" style="width:255px;height:255px">
-        <img src="images/pizza2.jpg" alt="Anchoas" />
+        <img src="images/pizza2.jpg" alt="Pizza de anchoas artesanal" />
       </div>
       <div class="pizza-item" id="p3" data-layer="3" style="width:365px;height:365px">
-        <img src="images/pizza3.jpg" alt="Prosciutto" />
+        <img src="images/pizza3.jpg" alt="Pizza con prosciutto italiano" />
       </div>
       <div class="pizza-item pizza-item--transparent" id="p4" data-layer="4" style="width:280px;height:280px">
-        <img src="images/pizza4.webp" alt="Our New Refugio" />
+        <img src="images/pizza4.webp" alt="Pizza Refugio, nueva especialidad de Los Clandestinos" />
       </div>
       <div class="pizza-item" id="p5" data-layer="5" style="width:210px;height:210px">
-        <img src="images/pizza5.jpg" alt="Capricciosa" />
+        <img src="images/pizza5.jpg" alt="Pizza Capricciosa artesanal" />
       </div>
     </div>
 
-    <!-- Headline with alternating words -->
-    <h1 class="hero__headline" aria-live="polite">
-      <span class="sr-only">Los Clandestinos — Pizzería italiana artesanal en La Línea de la Concepción.</span>
+    <!-- SEO H1: one clean, descriptive, keyword-targeted heading.
+         Visually hidden because the animated text below is the design treatment. -->
+    <h1 class="sr-only">Pizzería italiana artesanal en La Línea de la Concepción, junto a Gibraltar — Los Clandestinos</h1>
+
+    <!-- Visual animated headline (decorative only — meaning is carried by the H1 above) -->
+    <div class="hero__headline" role="presentation" aria-hidden="true">
       <span class="hero__static" data-i18n="hero-static">QUÉ GANAS DE</span>
       <div class="hero__word-wrap" id="wordWrap" aria-label="Jamón, Queso, Anchoas">
         <span class="hero__word hero__word--active" data-word="JAMÓN" data-i18n="word-0">JAMÓN</span>
         <span class="hero__word hero__word--enter"  data-word="QUESO" data-i18n="word-1">QUESO</span>
         <span class="hero__word hero__word--enter"  data-word="ANCHOAS" data-i18n="word-2">ANCHOAS</span>
       </div>
-    </h1>
+    </div>
 
     <!-- Labels -->
     <div class="pizza-label label-dop" aria-hidden="true">
@@ -269,7 +291,7 @@
         <p class="product-desc" data-i18n="prod-1-desc">Prosciutto di Parma que se deshace en la boca, mozzarella di bufala de cremosidad delicada, rúcula fresca con su punto amargo justo, y tomates cherry que estallan dulcemente en cada bocado.</p>
       </div>
       <div class="product-img-wrap">
-        <img src="images/product-1.webp" alt="Saltimbocca alla Parma" loading="lazy" style="width: 700px; object-fit: contain" />
+        <img src="images/product-1.webp" alt="Saltimbocca alla Parma con prosciutto di Parma y mozzarella di bufala · Los Clandestinos, La Línea de la Concepción" loading="lazy" style="width: 700px; object-fit: contain" />
       </div>
     </div>
 
@@ -281,7 +303,7 @@
         <p class="product-desc" data-i18n="prod-2-desc">Capas de pasta fresca, ragú de cocción lenta y bechamel cremosa. La lasaña como debe ser: generosa, honesta y sin atajos. El plato que te reconcilia con el mundo.</p>
       </div>
       <div class="product-img-wrap">
-        <img src="images/product-3.webp" alt="Chef's best lasagne" loading="lazy" />
+        <img src="images/product-3.webp" alt="Lasaña artesanal italiana · Los Clandestinos, pizzería en La Línea de la Concepción" loading="lazy" />
       </div>
     </div>
 
@@ -293,7 +315,7 @@
         <p class="product-desc" data-i18n="prod-3-desc">Cinco quesos con denominación de origen, seleccionados para recorrer Italia en un solo bocado. Los acompañamos con nueces tostadas, miel artesanal y tomates cherry desecados que aportan ese punto dulce y concentrado que lo cambia todo. Para compartir — o no.</p>
       </div>
       <div class="product-img-wrap">
-        <img src="images/product-2.webp" alt="The best Italian bits" loading="lazy" />
+        <img src="images/product-2.webp" alt="Tabla de quesos italianos DOP · Los Clandestinos, La Línea de la Concepción" loading="lazy" />
       </div>
     </div>
 
@@ -305,7 +327,7 @@
         <p class="product-desc" data-i18n="prod-4-desc">Crocante exterior que cede ante un corazón de ricotta artesanal, suave y aterciopelado. Pepitas de chocolate y pistacho tostado completan esta oda a la tradición siciliana. Un final irresistible que merece su propio espacio.</p>
       </div>
       <div class="product-img-wrap">
-        <img src="images/product-4.webp" alt="Cannoli Siciliani" loading="lazy" />
+        <img src="images/product-4.webp" alt="Cannoli sicilianos caseros · Los Clandestinos, pizzería italiana en La Línea" loading="lazy" />
       </div>
     </div>
 

@@ -839,7 +839,7 @@ const i18n = {
     'cta-title':          '¿Listo para saborear la autenticidad?',
     'cta-sub':            'Llámanos y disfruta de los mejores ingredientes italianos esta noche.',
     'cta-btn':            '¡PIDE AHORA!',
-    'page-title':         'Nuestros Productos — Los Clandestinos Pizzería Italiana',
+    'page-title':         'Ingredientes Italianos DOP para Pizza | Los Clandestinos, La Línea',
   },
   en: {
     'nav-order':          'ORDER ONLINE',
@@ -910,7 +910,7 @@ const i18n = {
     'cta-title':          'Ready to taste authenticity?',
     'cta-sub':            'Call us and enjoy the finest Italian ingredients tonight.',
     'cta-btn':            'ORDER NOW!',
-    'page-title':         'Our Products — Los Clandestinos Italian Pizzeria',
+    'page-title':         'Italian DOP Pizza Ingredients | Los Clandestinos, La Línea',
   }
 };
 
