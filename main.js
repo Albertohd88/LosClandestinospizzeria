@@ -839,7 +839,7 @@ const i18n = {
     'cta-title':          '¿Listo para saborear la autenticidad?',
     'cta-sub':            'Pide online y disfruta de los mejores ingredientes italianos esta noche.',
     'cta-btn':            '¡PIDE AHORA!',
-    'page-title':         'Nuestros Productos — Los Clandestinos Pizzería Italiana',
+    'page-title':         'Los Clandestinos Pizzería Italiana - La verdadera pizza en el campo de gibraltar',
   },
   en: {
     'nav-order':          'ORDER ONLINE',
