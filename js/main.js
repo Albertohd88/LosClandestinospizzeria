@@ -615,10 +615,10 @@ function initCtaBanner() {
     <span class="cta-banner__eyebrow" data-i18n="cta-eyebrow">${t['cta-eyebrow'] || 'Ingredientes de Italia · Directamente a ti'}</span>
     <h2 class="cta-banner__title" data-i18n="cta-title">${t['cta-title'] || '¿Listo para saborear la autenticidad?'}</h2>
     <p class="cta-banner__sub" data-i18n="cta-sub">${t['cta-sub'] || 'Llámanos y disfruta de los mejores ingredientes italianos esta noche.'}</p>
-    <a href="tel:+34856941295" class="cta-banner__btn" data-i18n="cta-btn">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="16" height="16"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6.06 6.06l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7a2 2 0 0 1 1.72 2.03z"/></svg>
-      ${t['cta-btn'] || '¡PIDE AHORA!'}
-    </a>
+ <a href="https://losclandestinos.turbopos.es/" class="cta-banner__btn" data-i18n="cta-btn">
+   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="16" height="16"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6.06 6.06l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7a2 2 0 0 1 1.72 2.03z"/></svg>
+   ${t['cta-btn'] || '¡PIDE AHORA!'}
+</a>
   `;
   lastRow.insertAdjacentElement('afterend', banner);
 }
