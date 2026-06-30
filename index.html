@@ -6,6 +6,10 @@
   <title>Pizzería Italiana en La Línea de la Concepción | Los Clandestinos</title>
   <meta name="description" content="Pizzería italiana auténtica en La Línea de la Concepción, junto a Gibraltar. Pizza artesanal al horno de piedra con ingredientes italianos DOP. Calle Carboneros 5 · Reservas: +34 856 94 12 95.">
   <link rel="canonical" href="https://www.losclandestinospizzeria.es/">
+  
+  <link rel="icon" href="https://raw.githubusercontent.com/Albertohd88/LosClandestinospizzeria/main/images/faviaoin0.png" type="image/png" sizes="96x96">
+  <link rel="shortcut icon" href="https://raw.githubusercontent.com/Albertohd88/LosClandestinospizzeria/main/images/favicon.ico" type="image/x-icon">
+
   <meta name="robots" content="index, follow">
   <meta name="geo.region" content="ES-CA">
   <meta name="geo.placename" content="La Línea de la Concepción">
@@ -23,21 +27,16 @@
   <meta name="twitter:title" content="Los Clandestinos — Pizzería Italiana · La Línea de la Concepción">
   <meta name="twitter:description" content="Pizza artesanal al horno de piedra con ingredientes italianos DOP, junto a Gibraltar.">
   <meta name="twitter:image" content="https://www.losclandestinospizzeria.es/images/pizza-whole.jpg">
-<!-- Favicon standard per i browser -->
-  <link rel="icon" type="image/png" href="https://github.com/Albertohd88/LosClandestinospizzeria/blob/main/images/favicon0.png">
-  <!-- Fonts -->
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-  <!-- GSAP -->
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
 
-  <!-- Styles -->
   <link rel="stylesheet" href="css/base.css" />
   <link rel="stylesheet" href="css/style.css" />
 
-  <!-- JSON-LD Schema -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -106,12 +105,8 @@
 </head>
 <body>
 
-  <!-- ══════════════════════════════════════
-       NAV
-  ══════════════════════════════════════ -->
   <nav class="nav" aria-label="Main navigation">
 
-    <!-- Language switcher — fixed left -->
     <div class="nav__lang" id="langSwitcher" aria-label="Language selector">
       <button class="lang-btn lang-btn--active" data-lang="es" aria-label="Español">
         <svg class="lang-flag" viewBox="0 0 24 18" role="img" aria-hidden="true" focusable="false">
@@ -137,12 +132,10 @@
       </button>
     </div>
 
-    <!-- Logo — centered -->
     <a href="index.html" class="nav__logo-link" aria-label="Los Clandestinos — Home">
       <img src="images/logo-white.svg" class="nav__logo" id="navLogo" alt="Los Clandestinos Pizzería Italiana" />
     </a>
 
-    <!-- Right group: products link + order CTA -->
     <div class="nav__right">
       <a href="productos.html" class="nav__products-link" data-i18n="nav-products">NUESTROS PRODUCTOS</a>
       <a href="https://losclandestinos.turbopos.es/" target="_blank" rel="noopener" class="nav__order-btn" data-i18n="nav-order">PEDIR ONLINE</a>
@@ -150,17 +143,12 @@
 
   </nav>
 
-  <!-- ══════════════════════════════════════
-       SECTION 1 — HERO (RED)
-  ══════════════════════════════════════ -->
   <section class="hero" id="hero" aria-label="Hero">
 
-    <!-- Hero background image -->
     <div class="hero__bg" aria-hidden="true">
       <img src="images/hero-bg.jpg" alt="" fetchpriority="high" />
     </div>
 
-    <!-- Floating pizza items in orbit -->
     <div class="pizza-orbit" aria-hidden="true">
       <div class="pizza-item" id="p1" data-layer="1" style="width:310px;height:310px">
         <img src="images/pizza1.jpg" alt="Pizza Quattro Formaggi artesanal al horno de piedra" />
@@ -179,11 +167,8 @@
       </div>
     </div>
 
-    <!-- SEO H1: one clean, descriptive, keyword-targeted heading.
-         Visually hidden because the animated text below is the design treatment. -->
     <h1 class="sr-only">Pizzería italiana artesanal en La Línea de la Concepción, junto a Gibraltar — Los Clandestinos</h1>
 
-    <!-- Visual animated headline (decorative only — meaning is carried by the H1 above) -->
     <div class="hero__headline" role="presentation" aria-hidden="true">
       <span class="hero__static" data-i18n="hero-static">QUÉ GANAS DE</span>
       <div class="hero__word-wrap" id="wordWrap" aria-label="Jamón, Queso, Anchoas">
@@ -193,7 +178,6 @@
       </div>
     </div>
 
-    <!-- Labels -->
     <div class="pizza-label label-dop" aria-hidden="true">
       "DOP" CHEESE
       <svg class="label-arrow label-arrow--dop" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -207,9 +191,6 @@
 
   </section>
 
-  <!-- ══════════════════════════════════════
-       BANNER — GREEN TICKER (after hero)
-  ══════════════════════════════════════ -->
   <section class="ticker-section" aria-label="Los mejores ingredientes">
     <div class="ticker-track" aria-hidden="true">
       <span>LOS MEJORES INGREDIENTES</span>
@@ -223,68 +204,51 @@
     </div>
   </section>
 
-  <!-- ══════════════════════════════════════
-       SECTION 2 — ABOUT 2.0
-  ══════════════════════════════════════ -->
   <section class="about-section" id="about" aria-label="About Los Clandestinos">
 
-    <!-- Full-bleed collage background -->
     <div class="about-collage" aria-hidden="true">
       <img src="images/about-collage-compressed.jpg" alt="" loading="lazy" />
     </div>
 
-    <!-- Overlay -->
     <div class="about-overlay" aria-hidden="true"></div>
 
-    <!-- Content -->
     <div class="about-content">
-
       <div class="about-eyebrow" data-i18n="about-eyebrow">La Línea · Desde 2020</div>
-
       <h2 class="about-title">
         <span class="line">La pizza italiana</span>
         <span class="line line--red">nacida entre</span>
         <span class="line">fronteras.</span>
       </h2>
-
       <div class="about-body">
         <p data-i18n="about-body-1">Los Clandestinos nace de la amistad y del deseo de crear algo especial entre La Línea de la Concepción y la comunidad fronteriza de Gibraltar. Un proyecto marcado por la frontera, el Brexit y la pandemia, donde encontramos en la pizza una forma de unir culturas y seguir adelante.</p>
         <p data-i18n="about-body-2">Nuestras raíces vienen de Abruzzo, una tierra con un ritmo de vida muy cercano al andaluz: pasión por la buena comida, respeto por los tiempos y amor por los ingredientes. Ese saber hacer se traduce en cada detalle: la fermentación de la masa, la selección de harinas y los aceites de oliva de Málaga.</p>
         <p data-i18n="about-body-3">Porque las recetas más sencillas son las que cuentan las mejores historias.</p>
       </div>
-
       <div class="about-tags">
         <span data-i18n="tag-0">Horno de piedra</span>
         <span data-i18n="tag-1">Masa artesanal</span>
         <span data-i18n="tag-2">Ingredientes DOP</span>
         <span data-i18n="tag-3">Abierto desde 2023</span>
       </div>
-
     </div>
 
-    <!-- Large decorative number -->
-    <div class="about-deco" aria-hidden="true">480°C</div>
+    <div class="about-deco" aria-hidden="true">180°C</div>
 
   </section>
 
-  <!-- FROM OUR KITCHEN stripe -->
   <div class="hero__stripe hero__stripe--standalone" aria-hidden="true">
     <div class="hero__stripe-track">
-      <span>FROM OUR KITCHEN &nbsp;✦&nbsp; DESDE NUESTRA COCINA &nbsp;✦&nbsp; FROM OUR KITCHEN &nbsp;✦&nbsp; DESDE NUESTRA COCINAN &nbsp;✦&nbsp; FROM OUR KITCHEN &nbsp;✦&nbsp; DESDE NUESTRA COCINA &nbsp;✦&nbsp; </span>
-      <span>FROM OUR KITCHEN &nbsp;✦&nbsp; DESDE NUESTRA COCINA &nbsp;✦&nbsp; FROM OUR KITCHEN &nbsp;✦&nbsp; DESDE NUESTRA COCINAN &nbsp;✦&nbsp; FROM OUR KITCHEN &nbsp;✦&nbsp; DESDE NUESTRA COCINA &nbsp;✦&nbsp;</span>
+      <span>FROM OUR KITCHEN  ✦  DESDE NUESTRA COCINA  ✦  FROM OUR KITCHEN  ✦  DESDE NUESTRA COCINAN  ✦  FROM OUR KITCHEN  ✦  DESDE NUESTRA COCINA  ✦  </span>
+      <span>FROM OUR KITCHEN  ✦  DESDE NUESTRA COCINA  ✦  FROM OUR KITCHEN  ✦  DESDE NUESTRA COCINAN  ✦  FROM OUR KITCHEN  ✦  DESDE NUESTRA COCINA  ✦ </span>
     </div>
   </div>
 
-  <!-- ══════════════════════════════════════
-       SECTION — PRODUCTS 2.0
-  ══════════════════════════════════════ -->
   <section class="products-section" id="products" aria-label="Our dishes">
 
     <div class="products-header">
       <span class="products-eyebrow" data-i18n="products-eyebrow">Dal forno · From the oven</span>
     </div>
 
-    <!-- Product 1: text left, image right -->
     <div class="product-row product-row--reverse" data-index="1" style="border-color: rgb(255, 255, 255); background-color: rgb(255, 255, 255)">
       <div class="product-text">
         <span class="product-num">01</span>
@@ -296,7 +260,6 @@
       </div>
     </div>
 
-    <!-- Product 2: image left, text right -->
     <div class="product-row product-row--reverse" data-index="2">
       <div class="product-text">
         <span class="product-num">02</span>
@@ -308,7 +271,6 @@
       </div>
     </div>
 
-    <!-- Product 3: text left, image right -->
     <div class="product-row product-row--reverse" data-index="3">
       <div class="product-text">
         <span class="product-num">03</span>
@@ -320,7 +282,6 @@
       </div>
     </div>
 
-    <!-- Product 4: image left, text right -->
     <div class="product-row product-row--reverse" data-index="4">
       <div class="product-text">
         <span class="product-num">04</span>
@@ -334,9 +295,6 @@
 
   </section>
 
-  <!-- ══════════════════════════════════════
-       SECTION — COCKTAIL BAR
-  ══════════════════════════════════════ -->
   <section class="cocktails-section" id="cocktails" aria-label="Cocktail bar">
 
     <div class="cocktails-header">
@@ -344,11 +302,9 @@
       <h2 class="cocktails-title">NUESTRA<br><span class="cocktails-title-outline">COCKTELERIA</span></h2>
     </div>
 
-    <!-- Carousel track -->
     <div class="cocktails-carousel-wrap">
       <div class="cocktails-track" id="cocktailsTrack">
 
-        <!-- 1 -->
         <div class="cocktail-card">
           <div class="cocktail-img-wrap">
             <img src="images/cocktail-spritz.jpg" alt="Aperol Spritz" loading="lazy" />
@@ -360,7 +316,6 @@
           </div>
         </div>
 
-        <!-- 2 -->
         <div class="cocktail-card">
           <div class="cocktail-img-wrap">
             <img src="images/cocktail-negroni.jpg" alt="Negroni" loading="lazy" />
@@ -372,7 +327,6 @@
           </div>
         </div>
 
-        <!-- 3 -->
         <div class="cocktail-card">
           <div class="cocktail-img-wrap">
             <img src="images/cocktail-americano.jpg" alt="Americano" loading="lazy" />
@@ -384,7 +338,6 @@
           </div>
         </div>
 
-        <!-- 4 -->
         <div class="cocktail-card">
           <div class="cocktail-img-wrap">
             <img src="images/cocktail-espresso-martini.jpg" alt="Espresso Martini" loading="lazy" />
@@ -398,11 +351,9 @@
 
       </div>
 
-      <!-- Nav arrows -->
-      <button class="cocktail-arrow cocktail-arrow--prev" id="cocktailPrev" aria-label="Previous">&#8592;</button>
-      <button class="cocktail-arrow cocktail-arrow--next" id="cocktailNext" aria-label="Next">&#8594;</button>
+      <button class="cocktail-arrow cocktail-arrow--prev" id="cocktailPrev" aria-label="Previous">←</button>
+      <button class="cocktail-arrow cocktail-arrow--next" id="cocktailNext" aria-label="Next">→</button>
 
-      <!-- Dots -->
       <div class="cocktail-dots" id="cocktailDots">
         <span class="cocktail-dot active"></span>
         <span class="cocktail-dot"></span>
@@ -413,9 +364,6 @@
 
   </section>
 
-  <!-- ══════════════════════════════════════
-       SECTION — REVIEWS / RANKINGS
-  ══════════════════════════════════════ -->
   <section class="reviews-section" aria-label="Customer rankings">
     <div class="reviews-inner">
       <div class="reviews-copy">
@@ -449,63 +397,9 @@
     </div>
   </section>
 
-  <!-- ══════════════════════════════════════
-       SECTION 3 — SCROLLING MARQUEE + WOOD PANEL (hidden — to be replaced)
-  ══════════════════════════════════════
-  <section class="marquee-section" id="marquee" aria-label="One pizza a day">
-
-    <div class="marquee-bg" aria-hidden="true">
-      <img src="images/gibraltar.jpg" alt="" />
-    </div>
-
-    <div class="wood-panel" id="woodPanel" aria-hidden="true">
-      <img src="images/woodboard-transparent.webp" alt="Pizza on a wood board" onerror="this.style.display='none'" />
-    </div>
-
-    <div class="marquee-text-track" aria-label="One pizza a day, keep the doctor away">
-      <div class="marquee-line marquee-line--auto" id="marqueeLineTop">
-        <span>ONE PIZZA A DAY&nbsp;·&nbsp;</span>
-        <span>ONE PIZZA A DAY&nbsp;·&nbsp;</span>
-        <span>ONE PIZZA A DAY&nbsp;·&nbsp;</span>
-        <span>ONE PIZZA A DAY&nbsp;·&nbsp;</span>
-      </div>
-      <div class="marquee-line marquee-line--auto marquee-line--alt marquee-line--reverse" id="marqueeLineBot">
-        <span>KEEP THE DOCTOR AWAY&nbsp;·&nbsp;</span>
-        <span>KEEP THE DOCTOR AWAY&nbsp;·&nbsp;</span>
-        <span>KEEP THE DOCTOR AWAY&nbsp;·&nbsp;</span>
-        <span>KEEP THE DOCTOR AWAY&nbsp;·&nbsp;</span>
-      </div>
-    </div>
-
-  </section>
-  -->
-
-  <!-- ══════════════════════════════════════
-       SECTION 4 — CRUNCH (hidden — to be replaced)
-  ══════════════════════════════════════
-  <section class="crunch-section" id="crunch" aria-label="Crunch every bit">
-    <div class="crunch-bg" aria-hidden="true">
-      <img src="images/pizzeria-bw.jpg" alt="" onerror="this.style.display='none'" />
-    </div>
-    <div class="crunch-board" id="crunchBoard" aria-hidden="true">
-      <img src="images/foodboard-transparent.webp" alt="Artisan food on a wood board" onerror="this.style.display='none'" />
-    </div>
-    <div class="crunch-text-wrap">
-      <div class="crunch-text" aria-label="Crunch every bit">
-        <span class="line" id="crunchLine1">CRUNCH</span>
-        <span class="line" id="crunchLine2">EVERY <span class="word-outline">BIT</span></span>
-      </div>
-    </div>
-  </section>
-  -->
-
-  <!-- ══════════════════════════════════════
-       SECTION — LOCATION / FIND US
-  ══════════════════════════════════════ -->
   <section class="location-section" id="contact" aria-label="Find us — location and hours">
     <div class="location-inner">
 
-      <!-- Head -->
       <div class="location-head" style="margin: 30px 0px 80px">
         <span class="location-eyebrow" data-i18n="loc-eyebrow">Encuéntranos · Find Us</span>
         <h2 class="location-title">
@@ -514,13 +408,10 @@
         </h2>
       </div>
 
-      <!-- Grid: info cards + map -->
       <div class="location-grid">
 
-        <!-- Info column -->
         <div class="loc-info">
 
-          <!-- Address -->
           <div class="loc-card">
             <div class="loc-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="20" height="20"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
@@ -531,7 +422,6 @@
             </div>
           </div>
 
-          <!-- Hours -->
           <div class="loc-card">
             <div class="loc-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="20" height="20"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
@@ -542,7 +432,6 @@
             </div>
           </div>
 
-          <!-- Phone -->
           <div class="loc-card loc-card--accent">
             <div class="loc-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="20" height="20"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6.06 6.06l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7a2 2 0 0 1 1.72 2.03z"/></svg>
@@ -553,7 +442,6 @@
             </div>
           </div>
 
-          <!-- Instagram -->
           <div class="loc-card loc-card--social">
             <div class="loc-icon loc-icon--green" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
@@ -564,7 +452,6 @@
             </div>
           </div>
 
-          <!-- CTA Buttons -->
           <div class="loc-btns">
             <a href="tel:+34856941295" class="loc-btn loc-btn--call">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="16" height="16"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6.06 6.06l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7a2 2 0 0 1 1.72 2.03z"/></svg>
@@ -582,7 +469,6 @@
 
         </div>
 
-        <!-- Map -->
         <div class="loc-map">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d798.2!2d-5.3491208!3d36.1606325!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd0cb5c8c6afb4f7%3A0xe2dc0ed8f1c7e74a!2sPizzeria%20Los%20Clandestinos!5e0!3m2!1sen!2ses!4v1714300000000!5m2!1sen!2ses"
@@ -599,22 +485,13 @@
     </div>
   </section>
 
-  <!-- ══════════════════════════════════════
-       FOOTER
-  ══════════════════════════════════════ -->
   <footer class="footer" aria-label="Contact and location">
     <p class="footer__bottom" data-i18n="footer-bottom">
-      © 2026 Los Clandestinos Pizzería Italiana &nbsp;·&nbsp; Calle Carboneros 5, La Línea
+      © 2026 Los Clandestinos Pizzería Italiana  ·  Calle Carboneros 5, La Línea
     </p>
-
   </footer>
 
-  <!-- Main JS -->
   <script src="js/main.js" defer></script>
-
-
-
-
 
 </body>
 </html>
