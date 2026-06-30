@@ -833,7 +833,7 @@ const i18n = {
     'prod-p3-title':      'Quesos<br>DOP',
     'prod-p3-desc':       'Bufala Campana, Parmigiano Reggiano, Gorgonzola. Tres denominaciones de origen que no necesitan presentación. Los seleccionamos en origen, en su punto exacto de maduración. Porque en una buena pizza, el queso no es un ingrediente más: es el argumento.',
     'prod-p4-title':      'Embutidos<br>Italianos',
-    'prod-p4-desc':       'Los mejores embutidos encuentra en las mejores mesas de la familias italianas. Mortadella de Bolonia, bresaola curada, speck di Angus y crudo di Parma. Producto auténtico, traído directamente de Italia. Los mismos que encuentras en las mejores tablas de Milán o Roma — ahora en La Línea.',
+    'prod-p4-desc':       'Los mejores embutidos encuentra en las mejores mesas de la familias italianas. Mortadella de Bologna, bresaola curada, speck di Angus y crudo di Parma. Producto auténtico, traído directamente de Italia. Los mismos que encuentras en las mejores tablas de Milán o Roma — ahora en La Línea.',
     /* CTA Banner */
     'cta-eyebrow':        'Ingredientes de Italia · Directamente a ti',
     'cta-title':          '¿Listo para saborear la autenticidad?',
